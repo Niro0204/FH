@@ -1,5 +1,5 @@
 /*****************************************************************************************************************
- 
+
  Name: myQueue2
 
  Author: Nicolai Rothenhöfer
@@ -10,13 +10,12 @@
 
 ******************************************************************************************************************/
 
-
 #include <stdio.h>
 
-//definiert SIZE als integer 
+// definiert SIZE als integer
 #define SIZE 5
 
-//deklaration der verwendeten Funktionen
+// deklaration der verwendeten Funktionen
 void enqueue(int);
 int dequeue();
 void show();
@@ -24,94 +23,93 @@ int head();
 int tail();
 void reset();
 
-//globale Variablen für Definierung der Queue
+// globale Variablen für Definierung der Queue
 int queue[SIZE];
 int front = -1;
 int rear = -1;
 
-
-int main (int argc, char * argv[])
+int main(int argc, char *argv[])
 {
 
-        int choice, item, check;
-        do
+    int choice, item, check;
+    do
+    {
+        // Menü für Queue-Operationen
+        printf("\nQueue Operations:\n");
+        printf("1. Enqueue\n");
+        printf("2. Dequeue\n");
+        printf("3. Display\n");
+        printf("4. Head\n");
+        printf("5. Tail\n");
+        printf("6. Reset\n");
+        printf("9. Exit\n");
+        printf("Enter your choice: \n");
+        scanf("%d", &choice);
+
+        switch (choice)
         {
-             // Menü für Queue-Operationen
-            printf("\nQueue Operations:\n");
-            printf("1. Enqueue\n");
-            printf("2. Dequeue\n");
-            printf("3. Display\n");
-            printf("4. Head\n");
-            printf("5. Tail\n");
-            printf("6. Reset\n");
-            printf("7. Exit\n");
-            printf("Enter your choice: \n");
-            scanf("%d", &choice);
-          
-            switch (choice)
+        case 1:
+
+            // Hinzufügen eines Elements zur Queue
+            printf("Enter the item to insert: ");
+            scanf("%d", &item);
+            enqueue(item);
+
+            break;
+
+        case 2:
+
+            // Entfernen eines Elements aus der Queue
+            item = dequeue();
+            if (item != -1)
             {
-            case 1:
+                printf("\nDequed item is: %d\n", item);
+            }
+            break;
 
-                // Hinzufügen eines Elements zur Queue
-                printf("Enter the item to insert: ");
-                scanf("%d", &item);
-                enqueue(item);
+        case 3:
+            // Anzeigen der Elemente in der Queue
+            show();
+            break;
 
-                break;
-                
-            case 2:
+        case 4:
 
-                // Entfernen eines Elements aus der Queue
-                item = dequeue();
-                if (item != -1)
-                {
-                    printf("\nDequed item is: %d\n", item);
-                }
-                break;
+            // Anzeigen des ersten Elements in der Queue (Head)
+            item = head();
+            if (item != -1)
+            {
+                printf("\nHead item is: %d\n", item);
+            }
+            break;
 
-            case 3:
-                 // Anzeigen der Elemente in der Queue
-                show();
-                break;
+        case 5:
 
-            case 4:
+            // Anzeigen des letzten Elements in der Queue (Tail)
+            item = tail();
+            if (item != -1)
+            {
+                printf("\nTail item is: %d\n", item);
+            }
+            break;
 
-                // Anzeigen des ersten Elements in der Queue (Head)
-                item = head();
-                if (item != -1)
-                {
-                    printf("\nHead item is: %d\n", item);
-                }
-                break;
+        case 6:
 
-            case 5:
+            // Zurücksetzen der Queue
+            reset();
+            break;
 
-                // Anzeigen des letzten Elements in der Queue (Tail)
-                item = tail();
-                if (item != -1)
-                {
-                    printf("\nTail item is: %d\n", item);
-                }
-                break;
+        case 9:
 
-            case 6:
+            // Beenden des Programms
+            printf("\n\nExiting from app.\n");
+            reset();
+            break;
 
-                // Zurücksetzen der Queue
-                reset();
-                break;
-
-            case 7:
-
-                 // Beenden des Programms
-                printf("\n\nExiting from app.\n");
-                reset();
-                break;
-
-            default:
-                // Ungültige Eingabe
-                printf("\nInvalid choice\n");
+        default:
+            // Ungültige Eingabe
+            printf("\nInvalid choice\n");
         }
-    } while (choice != 7);
+    } while (choice != 9);
     return 0;
 }
 
@@ -147,7 +145,7 @@ int dequeue()
     }
     else
     {
-         // Entnahme des Elements aus der Queue
+        // Entnahme des Elements aus der Queue
         item = queue[front];
         if (front == rear)
         {
@@ -179,10 +177,10 @@ void show()
         printf("Queue: ");
         for (i = rear; i != front; i = (i - 1 + SIZE) % SIZE)
         {
-            if(i == rear)
-                printf("(T) %d -> ", queue[i]);
-            else if((i % SIZE) != front)
-                printf("%d -> ", queue[i]);
+            if (i == rear)
+                printf("%d ", queue[i]);
+            else if ((i % SIZE) != front)
+                printf("%d ", queue[i]);
         }
         printf("%d (H)", queue[front]);
         printf("\n");
