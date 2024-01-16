@@ -1,10 +1,76 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-
+        {
+            "name": "C/C++: gcc Aktive Datei erstellen und debuggen",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Automatische Strukturierung und Einrückung für \"gdb\" aktivieren",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Disassemblierungsvariante auf Intel festlegen",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc Aktive Datei kompilieren",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "C/C++ Runner: Debug Session",
+            "type": "cppdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "cwd": "/home/nico/Dev/FH/SWE_Aufgaben/Test",
+            "program": "/home/nico/Dev/FH/SWE_Aufgaben/Test/build/Debug/outDebug",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "C/C++: C:\\Program Files\\mingw64\\bin\\gcc.exe Aktive Datei erstellen und debuggen",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Automatische Strukturierung und Einrückung für \"gdb\" aktivieren",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Disassemblierungsvariante auf Intel festlegen",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe build active file",
+            "miDebuggerPath": "gdb"
+        }
     ]
 }
