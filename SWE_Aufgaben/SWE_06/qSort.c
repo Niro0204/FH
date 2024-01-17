@@ -28,7 +28,7 @@ int main()
         count++;
     }
 
-    printf("------------------\n");
+    printf("----------------\n");
 
     for (int i = 0; i < count; i++)
     {
