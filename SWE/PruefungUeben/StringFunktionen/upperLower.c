@@ -30,7 +30,7 @@ int toLower(char str[]){
 
         for(int i=0;i<=9;i++){
 
-            if(str[i]>=65 & str[i]<=90){
+            if(str[i]>=65 && str[i]<=90){
 
                 str[i]=str[i]+32;
                 count++;
