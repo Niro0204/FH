@@ -25,10 +25,27 @@ typedef struct Album{
 //declaring an array to fill in the albums
 album albums[MAX_SIZE];
 
-//filling the array with data for demonstration
-
 
 int main(){
+
+    //filling the array with data for demonstration
+    //Album 1
+    strcpy(albums[0].title,"Swimming");
+    strcpy(albums[0].interpreter,"Mac Miller");
+    albums[0].year=2018;
+    strcpy(albums[0].condition,"like new");
+
+    //Album 2
+    strcpy(albums[1].title,"Ok Computer");
+    strcpy(albums[1].interpreter,"Radiohead");
+    albums[1].year=1997;
+    strcpy(albums[1].condition,"used");
+
+    //Album 3 
+    strcpy(albums[2].title,"All Eyez On Me");
+    strcpy(albums[2].interpreter,"2Pac");
+    albums[2].year=2017;
+    strcpy(albums[2].condition,"scratched");
 
     int choice=0;
 
@@ -48,4 +65,9 @@ int main(){
     return 0;
 }
 
-hallo
+
+
+void search_title(){
+
+
+}
