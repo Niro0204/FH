@@ -5,12 +5,15 @@
 //including libraries
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //defining a max inventory size
 #define MAX_SIZE 100
 
 //declaring functions
+void print_album(int);
 void search_title();
+void search_interpreter();
 
 //declaring struct
 typedef struct Album{
@@ -48,14 +51,26 @@ int main(){
     strcpy(albums[2].condition,"scratched");
 
     int choice=0;
-
+    char c;
     //giving user possible options and asking for input
     printf("Welcome to the second hand Venyl shelf!\nWhat do you want to search for?\n\n");
     printf("1. Titel\n2. Interpreter\n3. Release year\n3. Sort by\n");
     scanf("%d",&choice); 
+
+     while ((c = getchar()) != '\n' && c != EOF) {
+        // Nichts tun, Zeichen verwerfen
+    }
+
    
     //switching functions because of user input
     switch(choice){
+
+        case 1:
+            search_title();
+            break;
+        case 2:
+            search_interpreter();
+            break;
 
         default: 
             printf("invalid choice!");
@@ -65,9 +80,63 @@ int main(){
     return 0;
 }
 
+//function to print a choosen album
+void print_album(int index){
 
+    printf("^\n\nTitle: %s\nInterpreter: %s\nYear: %d\nCondition: %s\n\n",albums[index].title,albums[index].interpreter,albums[index].year,albums[index].condition);
+
+}
 
 void search_title(){
 
+    char input[50];
+    char c;
+    int i=0;
+    int found=0;
+
+    printf("Title: ");
+    while ((c = getchar()) != '\n' && i < MAX_SIZE) {
+     input[i++] = c;
+    }
+    input[i]='\0';
+
+    for(int j=0;j<MAX_SIZE;j++){
+
+        if(strcmp(albums[j].title,input)==0){
+            print_album(j);
+            found++;
+        }
+    }
+
+    if(found==0){
+        printf("no match for \"%s\"",input);
+    }
 
 }
+
+void search_interpreter(){
+
+    char input[50];
+    char c;
+    int i=0;
+    int found=0;
+
+    printf("Interpreter: ");
+    while ((c = getchar()) != '\n' && i < MAX_SIZE) {
+     input[i++] = c;
+    }
+    input[i]='\0';
+
+    for(int j=0;j<MAX_SIZE;j++){
+
+        if(strcmp(albums[j].interpreter,input)==0){
+            print_album(j);
+            found++;
+        }
+    }
+
+    if(found==0){
+        printf("no match for \"%s\"",input);
+    }
+}
+
