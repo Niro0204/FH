@@ -1,4 +1,15 @@
+/*****************************************************************************************************************
 
+ Name: secondhandVenylStore
+
+ Author: Nicolai Rothenhöfer
+
+ Description: Ein C-Programm secondhandVinylStore, das das Second Hand Regal eines Plattenladens verwaltet.
+              
+
+ Datum: 13.03.2024
+
+******************************************************************************************************************/
 
 
 
@@ -33,28 +44,28 @@ typedef struct Album{
 } album;
 
 //declaring an array to fill in the albums
-album albums[MAX_SIZE];
+album shelf[MAX_SIZE];
 
 int main(){
 
     //filling the array with data for demonstration
     //Album 1
-    strcpy(albums[0].title,"Swimming");
-    strcpy(albums[0].interpreter,"Mac Miller");
-    albums[0].year=2018;
-    strcpy(albums[0].condition,"like new");
+    strcpy(shelf[0].title,"Swimming");
+    strcpy(shelf[0].interpreter,"Mac Miller");
+    shelf[0].year=2018;
+    strcpy(shelf[0].condition,"like new");
 
     //Album 2
-    strcpy(albums[1].title,"Ok Computer");
-    strcpy(albums[1].interpreter,"Radiohead");
-    albums[1].year=1997;
-    strcpy(albums[1].condition,"used");
+    strcpy(shelf[1].title,"Ok Computer");
+    strcpy(shelf[1].interpreter,"Radiohead");
+    shelf[1].year=1997;
+    strcpy(shelf[1].condition,"used");
 
     //Album 3 
-    strcpy(albums[2].title,"All Eyez On Me");
-    strcpy(albums[2].interpreter,"2Pac");
-    albums[2].year=2017;
-    strcpy(albums[2].condition,"scratched");
+    strcpy(shelf[2].title,"All Eyez On Me");
+    strcpy(shelf[2].interpreter,"2Pac");
+    shelf[2].year=2017;
+    strcpy(shelf[2].condition,"scratched");
 
     int choice;
 
@@ -88,28 +99,28 @@ int main(){
                 int newChoice = 0;
                 printf("\n\n");
                 printf("How do you want to sort?\n");
-                printf("1. year descending\n2. year ascending\n3. titel alphabetical\n4. titel alphabetical descending \n");
+                printf("1. year descending\n2. year ascending\n3. titel alphabetical\n4. titel alphabetical descending\n5. Exit");
                 scanf("%d",&newChoice);
 
                 //opens new menu to choose sorting style
                 switch(newChoice){
 
                     case 1:
-                        qsort(albums,MAX_SIZE,sizeof(album),descending_year);  //sorting with qsort
+                        qsort(shelf,MAX_SIZE,sizeof(album),descending_year);  //sorting with qsort
                         print_allAlbum();
                         break;
 
                     case 2:
-                        qsort(albums,MAX_SIZE,sizeof(album),ascending_year);
+                        qsort(shelf,MAX_SIZE,sizeof(album),ascending_year);
                         print_allAlbum();
                         break;
                     
                     case 3:
-                        qsort(albums,MAX_SIZE,sizeof(album),descending_title);
+                        qsort(shelf,MAX_SIZE,sizeof(album),descending_title);
                         print_allAlbum();
                         break;
                     case 4:
-                        qsort(albums,MAX_SIZE,sizeof(album),ascending_title);
+                        qsort(shelf,MAX_SIZE,sizeof(album),ascending_title);
                         print_allAlbum();
                         break;
                     default:
@@ -134,7 +145,7 @@ int main(){
 void print_album(int index){
 
     printf("\n______________________\n");
-    printf("\nTitle: %s\nInterpreter: %s\nYear: %d\nCondition: %s\n",albums[index].title,albums[index].interpreter,albums[index].year,albums[index].condition);
+    printf("\nTitle: %s\nInterpreter: %s\nYear: %d\nCondition: %s\n",shelf[index].title,shelf[index].interpreter,shelf[index].year,shelf[index].condition);
     printf("______________________\n\n");
 }
 
@@ -157,7 +168,7 @@ void search_title(){
      //if theres a match it prints the album with the current index
     for(int j=0;j<MAX_SIZE;j++){
 
-        if(strcmp(albums[j].title,input)==0){
+        if(strcmp(shelf[j].title,input)==0){
             print_album(j);
             found++;    
         }
@@ -189,7 +200,7 @@ void search_interpreter(){
 
         //loops trough array and compares interpreters with the input
         //if theres a match it prints the album with the current index
-        if(strcmp(albums[j].interpreter,input)==0){
+        if(strcmp(shelf[j].interpreter,input)==0){
             print_album(j);
             found++;
         }
@@ -211,7 +222,7 @@ void search_year(){
 
     for(int i=0; i < MAX_SIZE;i++){
 
-        if(albums[i].year == input){
+        if(shelf[i].year == input){
             print_album(i);
             found++;
         }
@@ -225,11 +236,11 @@ void search_year(){
 
 void print_allAlbum(){
 
-    current_size(); //updating current size
+   // current_size(); //updating current size
 
     for(int i=0;i<MAX_SIZE;i++){
 
-        if(albums[i].year != 0){
+        if(shelf[i].year != 0){
         print_album(i);
         }
     }
