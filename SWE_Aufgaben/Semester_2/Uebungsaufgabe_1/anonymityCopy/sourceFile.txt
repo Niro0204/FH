@@ -1,0 +1,2 @@
+Das ist ein Testfile und beinhaltet Worte, welche kopiert werden sollen außer:
+privatesWort
