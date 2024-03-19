@@ -20,19 +20,23 @@ int main() {
         return 0;
     }
 
-    int j;
+    
     char c;
+    int j;
+
+
     for (int i = 0; i < numVis; i++) {
 
         printf("Name:");
-         while ((c = getchar()) != '\n') { 
+        for(j=0;j<15;j++){
 
-            name[j++] = c;
+            name[j] = getchar();
         }
 
         name[j]=='\0';
 
         visitors[i]=name;
+
         j=0;
     }
 
