@@ -1,2 +1,1 @@
-Hier wird angehängt:Das ist ein Testfile und beinhaltet Worte, welche kopiert werden sollen außer:
-****
+hierher soll kopiert werden:
