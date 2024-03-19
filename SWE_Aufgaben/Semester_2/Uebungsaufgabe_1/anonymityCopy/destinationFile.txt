@@ -1,1 +1,6 @@
 hierher soll kopiert werden:
+Hallo ich bin ein Testfile.
+Ich werde Kopiert und an ein anderes File angehängt.
+Nur dieses eine Wort wird zensiert:
+****
+das hier sollte auch noch gut aussehen
