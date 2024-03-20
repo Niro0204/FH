@@ -40,14 +40,16 @@ int main(){
 
     int choice;
 
-     printf("Welcome to the second hand Venyl shelf!\nWhat do you want to search for?\n\n");
+     printf("Welcome to the second hand Venyl shelf!\n\n");
     
     do{
         choice=0;
         char c;
 
+        printf("What do you want to do? \n\n");
+
         //giving user possible options and asking for input
-        printf("1. Titel\n2. Interpreter\n3. Release year\n4. Sort by\n5. Add album\n6. Exit\n");
+        printf("1. search titel\n2. search interpreter\n3. search release year\n4. Sort by something\n5. Add album\n6. Exit\n");
         scanf("%d",&choice); 
 
         // flush buffer (stack overflow)
@@ -77,21 +79,21 @@ int main(){
                 switch(newChoice){
 
                     case 1:
-                        qsort(albums,MAX_SIZE,sizeof(album),descending_year);  //sorting with qsort
+                        qsort(albums,MAX_SIZE,sizeof(album),descending_year);  //sorting decending year with qsort
                         print_allAlbum();
                         break;
 
                     case 2:
-                        qsort(albums,MAX_SIZE,sizeof(album),ascending_year);
+                        qsort(albums,MAX_SIZE,sizeof(album),ascending_year); //sorting ascending year with qsort
                         print_allAlbum();
                         break;
                     
                     case 3:
-                        qsort(albums,MAX_SIZE,sizeof(album),descending_title);
+                        qsort(albums,MAX_SIZE,sizeof(album),descending_title); //sorting decending title with qsort
                         print_allAlbum();
                         break;
                     case 4:
-                        qsort(albums,MAX_SIZE,sizeof(album),ascending_title);
+                        qsort(albums,MAX_SIZE,sizeof(album),ascending_title); //sorting ascending title with qsort
                         print_allAlbum();
                         break;
                     default:
@@ -124,12 +126,13 @@ void get_fileAlbums() {
         exit(1);
     }
 
-    //using format specifiers to read data correctly
+    //using format specifiers to read data correctly (help from stack overflow)
     while (fscanf(file, "%49[^,], %49[^,], %d, %29[^\n]%*c",albums[albumCount].title, albums[albumCount].interpreter,
                                                             &albums[albumCount].year, albums[albumCount].condition) == 4){
 
-        albumCount++;
+        albumCount++; //increasing albumCount for every album loaded from file
 
+        //checking if there are too many albums in file
         if (albumCount >= MAX_SIZE) {
             printf("too many albums in file\n");
             break;
@@ -139,7 +142,7 @@ void get_fileAlbums() {
     fclose(file);
 }
 
-//function to print a album witch handed over index  
+//function to print a album with handed over index  
 void print_album(int index){
 
     printf("\n______________________\n");
@@ -215,9 +218,11 @@ void search_year(){
     int input=0;
     int found=0;
 
+    //asking user for input
     printf("enter release year: ");
     scanf("%d",&input);
 
+    // Loop through the albums array to find albums with the matching year
     for(int i=0; i < MAX_SIZE;i++){
 
         if(albums[i].year == input){
@@ -226,12 +231,14 @@ void search_year(){
         }
     }
 
+    //checking for results
     if(found==0){
         printf("no matches for \"%d\"",input);
     }
 
 }
 
+//prints all albums in array
 void print_allAlbum(){
 
     for(int i=0;i<MAX_SIZE;i++){
@@ -260,6 +267,7 @@ int ascending_year(const void *a,const void *b){
     return albumA->year - albumB->year;
 }
 
+//qsort title descending
 int descending_title(const void *a,const void *b){
 
     album *albumA = (album *)a;
@@ -267,6 +275,7 @@ int descending_title(const void *a,const void *b){
     return strcmp(albumB->title, albumA->title);
 }
 
+//qsort title ascending
 int ascending_title(const void *a, const void *b){
     
     album *albumA = (album *)a;
@@ -276,22 +285,27 @@ int ascending_title(const void *a, const void *b){
 
 //adding album to temp album array and to file 
 void add_album() {
+
+    //checking if the file ist already full
     if (albumCount >= MAX_SIZE) {
         printf("Maximum number of albums reached.\n");
         return;
     }
 
+    //opening file in append mode to add a new album
     FILE *file = fopen("music.txt", "a");
     if (file == NULL) {
         printf("Error opening file %s\n", file);
         return;
     }
 
+    
     printf("Adding a new album:\n");
 
+    //asking for album information and saving it in array and file 
     printf("Enter title: ");
-    scanf(" %49[^\n]", albums[albumCount].title); 
-    fprintf(file, "%s, ", albums[albumCount].title);
+    scanf(" %49[^\n]", albums[albumCount].title); //adds the new information to array
+    fprintf(file, "%s, ", albums[albumCount].title); //adds the new information to file
 
     printf("Enter interpreter: ");
     scanf(" %49[^\n]", albums[albumCount].interpreter); 
@@ -305,7 +319,9 @@ void add_album() {
     scanf(" %29[^\n]", albums[albumCount].condition); 
     fprintf(file, "%s\n", albums[albumCount].condition);
 
+    //closing file
     fclose(file);
 
-    albumCount++; // Increment the number of albums in the collection
+    //incrementing album count to keep track
+    albumCount++; 
 }
