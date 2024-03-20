@@ -1,3 +1,16 @@
+/*****************************************************************************************************************
+
+ Name: secondhandVenylstoreWithFiles
+
+ Author: Nicolai Rothenhöfer
+
+ Description:   this is an extension to a previous program. It handles the inventory of a venylstore shelf.
+                The information about the albums is saved in and read from an external file named "music.txt".
+
+ Datum: 18.03.2024
+
+******************************************************************************************************************/
+
 //including libraries
 #include <stdio.h>
 #include <stdlib.h>

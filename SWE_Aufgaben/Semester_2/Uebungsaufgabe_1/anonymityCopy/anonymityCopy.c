@@ -1,40 +1,84 @@
+/*****************************************************************************************************************
+
+ Name: anonymityCopy
+
+ Author: Nicolai Rothenhöfer
+
+ Description:   this program takes command-line arguments to add file contents to a destination file. 
+                It takes a word that should be blurred in the process. 
+
+ Datum: 18.03.2024
+
+******************************************************************************************************************/
+
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+int main(int argc, char *argv[]) {
 
-
-
-int main(int argc, char *argv[]){
-
-    FILE *sourceF = NULL;
-    FILE *destF = NULL;
-
-   /* char *source = argv[0];
-    char *dest = argv[1];
-    char *privWord = argv[2];*/
-    
-    //sourceF = fopen(source,"r");
-    //destF = fopen(dest,"a");
-
-    sourceF = fopen("sourceFile.txt","r");
-    destF = fopen("destinationFile.txt","a");
-
-    if(sourceF == NULL || destF == NULL){
-        printf("failed to open file!");
-
+     // Check if the correct number of command-line arguments are provided
+    if (argc != 4) {
+        printf("man: <source File> <destination File> <word to blurr>\n");
         return 0;
     }
 
-    char c;
-
-    
-    while((c=fgetc(sourceF))!=EOF){
-
-        fputc(c,destF);
+    // Open the source file for reading
+    FILE *sourceF = fopen(argv[1], "r");
+    if (sourceF == NULL) {
+        printf("failed to open source file.\n");
+        return 0;
     }
 
+    // Open or create the destination file (append mode)
+    FILE *destF = fopen(argv[2], "a");
+    if (destF == NULL) {
+        printf("failed to open destination file.\n");
+        fclose(sourceF);
+        return 0;
+    }
+
+    // Store the word to be blurred from command-line argument
+    char *strg = argv[3];
+    int wordlen = strlen(strg);
+
+    int c;
+    int i = 0;
+
+     // Read characters from source file until EOF is reached
+    while ((c = fgetc(sourceF)) != EOF) {
+
+        // Check if the character matches the next character of the word to be blurred
+        if (c == strg[i]) {
+            i++;
+            if (i == wordlen) {  //if all characters match, replace the word
+                fputs("****", destF);
+                i = 0;
+            }
+        } 
+        else {
+            if (i > 0) {   //if not all characters match, write the matched ones in the file
+                fwrite(strg, sizeof(char), i, destF);
+                i = 0;
+            }
+
+            //if there is no match at all, write characters into the File
+            fputc(c, destF);
+        }
+    }
+
+    //write any in strg remaining characters into file
+    if (i > 0) {
+        fwrite(strg, sizeof(char), i, destF);
+    }
+
+    //close both files
     fclose(sourceF);
     fclose(destF);
+
+    //let the user know the program completed successfully
+    printf("copied and anonymized successfully\n");
 
     return 0;
 }
