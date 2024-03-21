@@ -27,14 +27,14 @@ int main(int argc, char *argv[]) {
     // Open the source file for reading
     FILE *sourceF = fopen(argv[1], "r");
     if (sourceF == NULL) {
-        printf("failed to open source file.\n");
+        fprintf(stderr,"failed to open source file.\n");
         return 0;
     }
 
     // Open or create the destination file (append mode)
     FILE *destF = fopen(argv[2], "a");
     if (destF == NULL) {
-        printf("failed to open destination file.\n");
+        fprintf(stderr,"failed to open destination file.\n");
         fclose(sourceF);
         return 0;
     }
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
      // Read characters from source file until EOF is reached
     while ((c = fgetc(sourceF)) != EOF) {
 
-        // Check if the character matches the next character of the word to be blurred
+        // Check if the character matches the character of the word to be blurred
         if (c == strg[i]) {
             i++;
             if (i == wordlen) {  //if all characters match, replace the word
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
         } 
         else {
             if (i > 0) {   //if not all characters match, write the matched ones in the file
-                fwrite(strg, sizeof(char), i, destF);
+                fwrite(strg, sizeof(char), i, destF);  //clue from stack overflow
                 i = 0;
             }
 
