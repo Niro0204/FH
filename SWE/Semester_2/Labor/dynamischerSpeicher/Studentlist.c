@@ -1,3 +1,6 @@
+
+//beispiel falsch, reservierter speicher wird nie verwendet
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,18 +11,12 @@ int main(){
     {
         char name[30];
         int age;
-
     } student;
-
-
-    student *storage = NULL;
-    storage = malloc(sizeof(student));
     
     student student1;
     strcpy(student1.name,"Nico");
     student1.age = 20;
 
-    storage = (student*)realloc(storage, 2*sizeof(student));
            
     student student2;
     strcpy(student2.name,"Sebi");
