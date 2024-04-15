@@ -1,3 +1,15 @@
+/*****************************************************************************************************************
+
+ Name: displaySourceComments.c
+
+ Author: Nicolai Rothenhöfer
+
+ Description: This program prints all comments from a given c-file either in a wanted file, or to stdout
+
+ Datum: 15.04.2024
+
+******************************************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,7 +26,6 @@ int main(int argc, char* argv[]){
     //setting sourceFile to last given argument
     FILE* sourceFile = NULL;
     sourceFile = fopen(argv[argc-1],"r");
-    printf("%s\n",argv[argc-1]);
 
     if(sourceFile == NULL){
         fprintf(stderr,"Failed to open source-file");
