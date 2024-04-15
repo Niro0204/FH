@@ -1,0 +1,13 @@
+// Check if the correct number of command-line arguments are provided
+/*does this now also work
+    would be great*/// Open the source file for reading
+// Open or create the destination file (append mode)
+// Store the word to be blurred from command-line argument
+// Read characters from source file until EOF is reached
+// Check if the character matches the next character of the word to be blurred
+//if all characters match, replace the word
+//if not all characters match, write the matched ones in the file
+//if there is no match at all, write characters into the File
+//write any in strg remaining characters into file
+//close both files
+//let the user know the program completed successfully
