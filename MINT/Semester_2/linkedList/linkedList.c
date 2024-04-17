@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 typedef struct node{
 
     int value;
@@ -13,37 +12,13 @@ node* createNode(int);
 node* deleteNode(int,node*);
 void printList(node*);
 
-
-
 int main(){
 
     node *head=NULL;
-    int input = 0;
+    head=malloc(sizeof(node));
+
     
-    /*head= createNode(1);
-    head->next=createNode(2);
-    head->next->next= createNode(3);
-    */
 
-   while(input != -1){
-
-        node* newNode = malloc(sizeof(node));
-
-        printf("value: ");
-        scanf("%d",input);
-
-        if(input==-1){
-            break;
-        }
-
-        newNode -> value = input;
-        newNode -> next = NULL;
-
-
-   }
-  
-
-    printList(head);
 
     return 0;
 }
@@ -60,8 +35,6 @@ node* createNode(int data){
 
     return newNode;
 }
-
-
 
 void printList(node* current){
 
