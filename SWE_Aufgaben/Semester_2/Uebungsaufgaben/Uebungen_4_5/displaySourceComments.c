@@ -154,11 +154,3 @@ void printComments(FILE* sourceFile, FILE* destFile, bool cpyCom){
         }
     }
 }
-
-
-
-
-
-
-
-
