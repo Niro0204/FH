@@ -53,11 +53,14 @@ int main(){
 
 void registerVisitor(){
 
+    //reallocating array memory to fit one visitor more
     visitors = realloc(visitors,(size+1)*sizeof(visitorData));
     if(visitors == NULL){
-        fprintf(stderr,"Reallocating memory failed");
+        fprintf(stderr,"Reallocating memory failed"); //checking if reallocating failed
+        exit(1);
     }
 
+    //saving visitor data in new allocated array place
     printf("Enter first Name: ");
     scanf("%s",visitors[size].firstName);
     printf("Enter last name: ");
@@ -65,18 +68,22 @@ void registerVisitor(){
     printf("Enter zip code: ");
     scanf("%d",&visitors[size].zipCode);
 
+    //incrementing size
     size++;
 
-    printf("Regristration successful\n");
+    printf("\nRegristration successful\n\n");
 }
 
 void printVisitors(){
 
-    for(int i = 0; i <= size; i++){
+    //iterating through visitors and printing the data
+    for(int i = 0; i < size; i++){
+        printf("\n------------------------\n");
         printf( "Visitor number: %d\n"
                 "First name: %s\n"
                 "Last name: %s\n"
                 "Zip code: %d\n", 
-                i, visitors[i].firstName, visitors[i].lastName, visitors[i].zipCode);
+                i+1, visitors[i].firstName, visitors[i].lastName, visitors[i].zipCode);
+        printf("-------------------------\n");
     }
 }
