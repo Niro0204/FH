@@ -50,7 +50,9 @@ int main(int argc, char* argv[]){
     printComments(sourceFile,destFile,cpyCom);
 
     fclose(sourceFile);
+    if(destFile != NULL){
     fclose(destFile);
+    }
 
     return 0;
 }
@@ -59,6 +61,7 @@ void printComments(FILE* sourceFile, FILE* destFile, bool cpyCom){
 
     int currentChar;
     int nextChar;
+    int count = 0;
 
     while((currentChar = getc(sourceFile)) != EOF){
 
@@ -79,6 +82,9 @@ void printComments(FILE* sourceFile, FILE* destFile, bool cpyCom){
                     putchar(currentChar);
                     putchar(nextChar);
                 }
+
+                //incrementing comment counter
+                count++;
 
                 // found comment gets printed
                 while((currentChar = getc(sourceFile)) != '\n' && currentChar != EOF){
@@ -110,6 +116,9 @@ void printComments(FILE* sourceFile, FILE* destFile, bool cpyCom){
                     putchar(currentChar);
                     putchar(nextChar);
                 }
+                
+                //incrementing comment counter 
+                count++;
 
                 // printing multi-line comment
                 while((currentChar = getc(sourceFile)) != EOF){
@@ -152,5 +161,10 @@ void printComments(FILE* sourceFile, FILE* destFile, bool cpyCom){
                 ungetc(nextChar, sourceFile);
             }
         }
+    }
+
+    //checking if comments are found
+    if(count == 0){
+        printf("no comments found\n");
     }
 }

@@ -19,7 +19,8 @@ void printVisitors();
 
 int main(){
 
-    int choice = 0;
+    int choice;
+
     visitors = malloc(sizeof(visitorData)); //allocating memory for first use of array
     if(visitors == NULL){
         fprintf(stderr,"Failed allocating memory");
@@ -27,6 +28,7 @@ int main(){
     }
 
     do{
+        choice = 0;
         //little menu for user
         printf( "1. Register a new Visitor\n"
                 "2. Show list of all visitors\n"
@@ -42,8 +44,9 @@ int main(){
                 break;
             case 2:
                 printVisitors();
+                break;
             case 3:
-                printf("Exiting!");
+                printf("Exiting!\n");
                 break;
         }
     }while(choice != 3);

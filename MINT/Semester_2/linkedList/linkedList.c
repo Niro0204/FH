@@ -44,4 +44,4 @@ void printList(node* current){
         current=current->next;
     }
 
-}
+}z

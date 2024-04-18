@@ -4,8 +4,8 @@
         return 0;
     }
 
-    /*does this now also work
-    would be great*/
+    /*this is a 
+    multi line comment*/
 
     // Open the source file for reading
     FILE *sourceF = fopen(argv[1], "r");
