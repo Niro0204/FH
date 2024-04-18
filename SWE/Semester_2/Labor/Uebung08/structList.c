@@ -19,7 +19,7 @@ typedef struct node{
 
 
 node* createNode(node*);
-node* deleteNode(int,node*);
+node* deleteNode(node*, char[]);
 void printList(node*);
 
 int main() {
@@ -111,4 +111,23 @@ void printList(node* current){
 
 }
 
-//node* deleteNode(node* )
+node* deleteNode(node* head,char lastName[20]){
+
+    if(head==NULL){
+        printf("head is empty");
+    }
+
+    node* current = head;
+    node* prev = NULL;
+
+    while(strcmp(current->p.lastName,lastName) == 0 && current != NULL){
+
+        prev= current;
+        current = current->next;
+
+    }
+
+
+
+
+}
