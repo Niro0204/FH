@@ -123,8 +123,7 @@ void printList(node* current){
 
 }
 
-node* deleteNode(node* head,char lastName[20]){
-
+node* deleteNode(node* head, char lastName[20]) {
     // Falls die Liste leer ist
     if (head == NULL) {
         printf("List is empty\n");
@@ -143,7 +142,7 @@ node* deleteNode(node* head,char lastName[20]){
 
     // Wenn der zu löschende Knoten gefunden wurde
     if (current != NULL) {
-        // Wenn der zu löschende Knoten der erste Knoten der Liste ist
+        // Wenn der zu löschende Knoten der Kopf der Liste ist
         if (prev == NULL) {
             head = head->next;
         } else {
@@ -158,4 +157,5 @@ node* deleteNode(node* head,char lastName[20]){
 
     return head;
 }
+
 
