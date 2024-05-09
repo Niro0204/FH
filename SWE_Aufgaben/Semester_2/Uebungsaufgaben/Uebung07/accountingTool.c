@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-node createNode();
+void addNode(buchung);
+
 
 typedef struct buchung{
 
@@ -14,10 +15,18 @@ typedef struct buchung{
 
 typedef struct node{
 
-    buchung;
+    buchung value;
     node* next;
+    node* prev;
 
 } node;
+
+typedef struct header{
+
+    int count;
+    node* first;
+    node* last; 
+} header;
 
 
 int main(){
@@ -27,15 +36,16 @@ int main(){
     return 0;
 }
 
-node* createNode(){
+void addNode(buchung buchung){
 
     node* newNode = malloc(sizeof(node));
     if(newNode == NULL){
         fprintf(stderr,"malloc failed");
     }
 
-    newNode->value = data;
+    newNode->value = buchung;
     newNode->next = NULL;
+    newNode->prev = 
 
-    return newNode;
+    
 }
