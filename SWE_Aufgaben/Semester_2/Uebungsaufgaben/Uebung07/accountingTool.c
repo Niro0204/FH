@@ -1,8 +1,22 @@
+/*****************************************************************************************************************
+
+ Name: accountingTool
+
+ Author: Nicolai Rothenhöfer
+
+ Description: Ein C-Programm welches Buchungssätze aus einer Datei lädt, dise verwalten kann und dann in ein neues,
+              Ausgewähltes Dokument speichert.
+              
+
+ Datum: 10.05.2024
+
+******************************************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
+//template for booking data
 typedef struct buchung{
 
     float soll;
@@ -12,6 +26,7 @@ typedef struct buchung{
     
 } buchung;
 
+//template for list nodes
 typedef struct node{
 
     buchung data;
@@ -21,7 +36,7 @@ typedef struct node{
 } node;
 
 
-
+//header
 node* head = NULL;
 node* tail = NULL;
 int listCount = 0;
@@ -39,10 +54,10 @@ buchung newBooking();
 
 int main(int argc, char* argv[]){
 
-    //header->head = NULL;
 
     int choice = 0;
 
+    //checking if there is an input file given
     if(argc<2){
         fprintf(stderr,"Es wurde kein Filename übergeben!");
         exit(1);
@@ -52,6 +67,7 @@ int main(int argc, char* argv[]){
 
     do{
         choice = 0;
+        //little menu for user
         printf("1. Neuen Buchungssatz einfügen\n"
            "2. Buchungssatz löschen\n"
            "3. Buchungssatz suchen\n"
@@ -60,7 +76,8 @@ int main(int argc, char* argv[]){
            "6. Programm Beenden\n\n");
     
         scanf("%d",&choice);
-
+        
+        //switching based on user input
         switch(choice){
 
             case 1: 
@@ -145,6 +162,7 @@ void printList(){
 
 }
 
+//prints node based on comment
 void printNode(){
 
     char text[100];
@@ -176,8 +194,10 @@ void printNode(){
 
 void saveToFile() {
 
-    char filename[30];
-    printf("Name der Datei: ");
+    char filename[50];
+
+    //asking for path and filename
+    printf("Absoluten Pfad oder ./<filename> um im derzeitigen Ordner zu speichern: ");
     scanf("%s",filename);
     
     FILE *file = fopen(filename, "w");
@@ -186,6 +206,7 @@ void saveToFile() {
         return;
     }
 
+    //saves data with specific format
     node *current = head;
     while (current != NULL) {
         fprintf(file, "%.2f,%.2f,%.2f,%s\n", current->data.betrag, current->data.soll, current->data.haben, current->data.kommentar);
@@ -197,12 +218,13 @@ void saveToFile() {
 
 
 void loadFromFile(char *filename) {
+
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         fprintf(stderr, "Fehler beim Öffnen der Datei zum Lesen.\n");
         return;
     }
-
+    //loading formated data from input File
     buchung data;
     while (fscanf(file, "%f,%f,%f,%[^\n]", &data.betrag, &data.soll, &data.haben, data.kommentar) == 4) {
         addNode(data);
@@ -211,6 +233,7 @@ void loadFromFile(char *filename) {
     fclose(file);
 }
 
+//deletes node based on position in list
 void deleteNode(){
 
     node* current = head;
@@ -237,7 +260,7 @@ void deleteNode(){
 
     //checking if a node was found
     if(temp == NULL){
-        printf("Could not find element\n");
+        printf("Element konnte nicht gefunden werden\n");
         return;
     }
 
@@ -266,7 +289,7 @@ buchung newBooking(){
     buchung newbooking;
     char tempComment[100];
 
-    
+    //user input for new element
     printf("Soll: ");
     scanf("%f",&newbooking.soll);
     printf("Haben: ");
@@ -276,7 +299,6 @@ buchung newBooking(){
     printf("Kommentar: ");
     scanf("%s",tempComment);
     strcpy(newbooking.kommentar,tempComment);
-
 
     return newbooking;
 }
