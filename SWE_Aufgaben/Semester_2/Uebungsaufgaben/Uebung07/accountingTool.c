@@ -10,7 +10,6 @@ typedef struct buchung{
     float betrag;
     char kommentar[100];
     
-    
 } buchung;
 
 typedef struct node{
@@ -267,6 +266,7 @@ buchung newBooking(){
     buchung newbooking;
     char tempComment[100];
 
+    
     printf("Soll: ");
     scanf("%f",&newbooking.soll);
     printf("Haben: ");
