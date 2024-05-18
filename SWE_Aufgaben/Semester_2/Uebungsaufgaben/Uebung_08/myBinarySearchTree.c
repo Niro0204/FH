@@ -141,4 +141,6 @@ void postOrder(struct node* root){
         postOrder(root->right);
         printf("%d ", root->value);
     }
-}
+} 
+
+//test
