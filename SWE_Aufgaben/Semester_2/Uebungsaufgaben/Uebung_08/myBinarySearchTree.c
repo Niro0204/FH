@@ -12,6 +12,9 @@ struct node* insertIntoTree(int, node*);
 void inOrder(node*);
 void preOrder(node*);
 void postOrder(node*);
+struct node* deleteNode(int, node*);
+struct node* findNode(int, node*);
+struct node* findMin(node*);
 
 int main(){
 
@@ -19,10 +22,11 @@ int main(){
 
     int choice = 0;
     int check = 0;
-    int value = 0;
+    
     
      do{
         choice = 0;
+        int value = 0;
         //little menu for user
         printf("1. insert new node\n"
            "2. traverse in-order\n"
@@ -44,7 +48,7 @@ int main(){
                     fprintf(stderr,"no value inserted");
                 }
 
-                insertIntoTree(value,tree); 
+                tree =insertIntoTree(value,tree); 
                 break;
             case 2: 
                 inOrder(tree);
@@ -56,7 +60,14 @@ int main(){
                 postOrder(tree);
                 break;
             case 5:
-             
+                printf("value: ");
+                check = scanf("%d",&value);
+
+              if (check == 0) {
+                    fprintf(stderr, "no value inserted\n");
+                    while (getchar() != '\n'); // Clear invalid input
+                } 
+                    
                 break;
             case 6:
                 printf("exiting..\n\n");
@@ -129,8 +140,8 @@ void inOrder(struct node* root){
 void preOrder(struct node* root) {
     if (root != NULL) {
         printf("%d ", root->value);
-        preorder(root->left);
-        preorder(root->right);
+        preOrder(root->left);
+        preOrder(root->right);
     }
 }
 
@@ -143,4 +154,71 @@ void postOrder(struct node* root){
     }
 } 
 
-//test
+node* deleteNode(int value, node* root){
+
+    //node mit passendem wert finden
+    node* foundNode = findNode(value, root);
+    if (foundNode != NULL) {
+        printf("found value: %d\n", foundNode->value);
+    } 
+    else {
+        printf("value not found in the tree\n");
+        }
+                
+
+    //ist gesuchte node ein leaf?
+    if(foundNode->left == NULL && foundNode->right == NULL){
+        free(foundNode);
+        return NULL;
+    }
+
+    //hat gesuchte node nur ein kind?
+        //wird durch einziges kind ersetzt
+    if(foundNode->left == NULL){
+        node* temp = foundNode->right;
+        free(foundNode);
+        return temp;
+    }
+    else if(foundNode->right == NULL){
+        node* temp = foundNode->left;
+        free(foundNode);
+        return temp;
+    }
+    
+    //hat gesuchte node mehrere kinder?
+        //
+}
+
+node* findNode(int value, node* root){
+
+    if(root == NULL){
+        fprintf(stderr,"no elements in tree");
+        return NULL;
+    }
+    else if(value > root->value){
+        findNode(value,root->right);
+    }
+    else if(value < root->value){
+        findNode(value,root->left);
+    }
+    else {
+        return root;
+    }
+   
+}
+
+node* findMin(node* root){
+
+    if(root == NULL){
+        fprintf(stderr,"no elements in tree");
+        return NULL;
+    }
+    
+    if(root != NULL && root->left != NULL){
+        findMin(root->left);
+    }
+    
+    return root;
+}
+
+
