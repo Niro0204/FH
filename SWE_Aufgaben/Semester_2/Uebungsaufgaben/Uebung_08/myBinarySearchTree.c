@@ -63,10 +63,12 @@ int main(){
                 printf("value: ");
                 check = scanf("%d",&value);
 
-              if (check == 0) {
+                if (check == 0) {
                     fprintf(stderr, "no value inserted\n");
                     while (getchar() != '\n'); // Clear invalid input
                 } 
+
+                tree = deleteNode(value,tree);
                     
                 break;
             case 6:
@@ -154,39 +156,34 @@ void postOrder(struct node* root){
     }
 } 
 
-node* deleteNode(int value, node* root){
 
-    //node mit passendem wert finden
-    node* foundNode = findNode(value, root);
-    if (foundNode != NULL) {
-        printf("found value: %d\n", foundNode->value);
-    } 
-    else {
-        printf("value not found in the tree\n");
+node* deleteNode(int value, node* root) {
+    if (root == NULL) {
+        return root;
+    }
+
+    if (value < root->value) {
+        root->left = deleteNode(value, root->left);
+    } else if (value > root->value) {
+        root->right = deleteNode(value, root->right);
+    } else {
+        // Knoten gefunden
+        if (root->left == NULL) {
+            node* temp = root->right;
+            free(root);
+            return temp;
+        } else if (root->right == NULL) {
+            node* temp = root->left;
+            free(root);
+            return temp;
         }
-                
 
-    //ist gesuchte node ein leaf?
-    if(foundNode->left == NULL && foundNode->right == NULL){
-        free(foundNode);
-        return NULL;
+        // Knoten mit zwei Kindern
+        node* temp = findMin(root->right);
+        root->value = temp->value;
+        root->right = deleteNode(temp->value, root->right);
     }
-
-    //hat gesuchte node nur ein kind?
-        //wird durch einziges kind ersetzt
-    if(foundNode->left == NULL){
-        node* temp = foundNode->right;
-        free(foundNode);
-        return temp;
-    }
-    else if(foundNode->right == NULL){
-        node* temp = foundNode->left;
-        free(foundNode);
-        return temp;
-    }
-    
-    //hat gesuchte node mehrere kinder?
-        //
+    return root;
 }
 
 node* findNode(int value, node* root){
