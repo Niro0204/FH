@@ -32,7 +32,7 @@ struct node* findMin(node*);
 
 int main(){
 
-    node* tree = NULL;
+    node* tree = NULL; //creating empty tree
 
     int choice = 0;
     int check = 0;
