@@ -49,10 +49,6 @@ button:hover {
     justify-content: space-between;
 }
 
-.menu-stripe ul li {
-     /*margin-right: 100px;*/
-}
-
 .menu-stripe ul li a {
     text-decoration: none;
     font-family: Arial;
