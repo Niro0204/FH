@@ -10,10 +10,10 @@ class AKNum {
         int tempResult;
     
     public:
-        // Konstruktor
+        // constructor
         AKNum(int input) : inputNum{input}, tempResult{0}{}
 
-        std::vector<int> getDigits(){
+        /*std::vector<int>*/ void  getDigits(){
 
             int tempInput = inputNum;
             int digit{0};   
@@ -29,13 +29,10 @@ class AKNum {
                 digits.push_back(digit);
             }
 
-            if(!validateInput()){
-                std::cerr << "The digits cannot all be the same!" << std::endl;
-                exit(EXIT_FAILURE);
-            }
+        
             //std::reverse(digits.begin(),digits.end());
 
-            return digits;
+            //return digits;
         }
 
         bool validateInput(){
@@ -47,7 +44,6 @@ class AKNum {
                     return true;
                 }
             }
-            //std::cerr << "The digits cannot all be the same!" << std::endl;
             
             return false;
         }
@@ -73,10 +69,31 @@ class AKNum {
 
         int subtract(){
 
+            sortDesc();
+            int bigNum = vecToNum();
+            sortAsc();
+            int smallNum = vecToNum();
+
+            return bigNum -smallNum;
         }
 
         void startAlgorithm(){
+            
+            while(true){
+                
+                getDigits();
 
+                if(!validateInput()){
+                    std::cerr << "The digits cannot all be the same!" << std::endl;
+                    exit(EXIT_FAILURE);
+                }
+
+                tempResult = subtract();
+
+                std::cout << "temp result: " << tempResult << std::endl;
+
+                inputNum = tempResult;
+            }
         }
 
 };
@@ -84,9 +101,14 @@ class AKNum {
 
 int main(){
 
+    int input;
 
-    
+    std::cout << "Please enter a positive, 4 digit integer: ";
+    std::cin >> input;
 
+    AKNum akNum(input);
+
+    akNum.startAlgorithm();
 
 
     return 0;
