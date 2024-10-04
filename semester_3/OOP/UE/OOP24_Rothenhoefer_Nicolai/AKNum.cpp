@@ -9,32 +9,23 @@ class AKNum {
         int inputNum; 
         std::vector<int> digits;
         std::set<int> results;
-        int tempResult;
     
     public:
         // constructor
-        AKNum(int input) : inputNum{input}, tempResult{0}{}
+        AKNum(int input) : inputNum{input}{}
 
-        /*std::vector<int>*/ void  getDigits(){
+        void  getDigits(){
+
+            digits.clear();
 
             int tempInput = inputNum;
             int digit{0};   
 
-            if(inputNum < 1000 || inputNum > 9999){
-                std::cerr << "The number has to be 4 digits!" << std::endl;
-                exit(EXIT_FAILURE);
-            }         
-
-            for(int i{0}; i < 4; i++){
+            while(tempInput > 0){                                       
                 digit = tempInput % 10;
                 tempInput = tempInput / 10;
                 digits.push_back(digit);
             }
-
-        
-            //std::reverse(digits.begin(),digits.end());
-
-            //return digits;
         }
 
         bool validateInput(){
@@ -79,18 +70,17 @@ class AKNum {
             return bigNum - smallNum;
         }
 
-
         void startAlgorithm(){
+
+            int tempResult{0};
             
             while(true){
 
-                digits.clear();
-                
                 getDigits();
 
-                if(!validateInput()){
-                    std::cerr << "The digits cannot all be the same!" << std::endl;
-                    exit(EXIT_FAILURE);
+                  if(!validateInput()){
+                    std::cerr << "Result: 0" << std::endl;
+                    return;
                 }
 
                 tempResult = subtract();
@@ -98,12 +88,11 @@ class AKNum {
                 std::cout << "temp result: " << tempResult << std::endl;
 
                 if(results.find(tempResult) != results.end()){
-                    std::cout << "The result repeats itself" << std::endl;
+                    std::cout << "Result: " << tempResult << std::endl;
                     break;
                 }
 
                 results.insert(tempResult);
-
                 inputNum = tempResult;
             }
 
@@ -113,18 +102,43 @@ class AKNum {
 };
 
 
-
 int main(){
 
     int input;
 
-    std::cout << "Please enter a positive, 4 digit integer: ";
-    std::cin >> input;
+    while(true){
 
-    AKNum akNum(input);
+        std::cout << "Please enter a positive, 4 digit integer: ";
+        std::cin >> input;
 
-    akNum.startAlgorithm();
+        if(std::cin.fail() || input < 1000 || input > 9999){
+            std::cerr << "invalid input, the number has to be 4 digits!" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(100,'\n');
+            continue;
+        }   
 
+        AKNum akNum(input);
+        akNum.getDigits();
+
+        if(!akNum.validateInput()){
+            std::cerr << "The digits cannot all be the same!" << std::endl;
+            continue;
+        }
+
+        std::cout << "enterd number: " << input << std::endl;
+
+        akNum.startAlgorithm();
+
+        char choice;
+
+        std::cout << "Try an other number? [y/n]: ";
+        std::cin >> choice;
+
+        if(choice != 'y'){
+            break;
+        }
+    }
 
     return 0;
 }
