@@ -1,12 +1,14 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <set>
 
 class AKNum {
 
     private:
         int inputNum; 
         std::vector<int> digits;
+        std::set<int> results;
         int tempResult;
     
     public:
@@ -74,12 +76,15 @@ class AKNum {
             sortAsc();
             int smallNum = vecToNum();
 
-            return bigNum -smallNum;
+            return bigNum - smallNum;
         }
+
 
         void startAlgorithm(){
             
             while(true){
+
+                digits.clear();
                 
                 getDigits();
 
@@ -92,11 +97,21 @@ class AKNum {
 
                 std::cout << "temp result: " << tempResult << std::endl;
 
+                if(results.find(tempResult) != results.end()){
+                    std::cout << "The result repeats itself" << std::endl;
+                    break;
+                }
+
+                results.insert(tempResult);
+
                 inputNum = tempResult;
             }
+
+            results.clear();
         }
 
 };
+
 
 
 int main(){
