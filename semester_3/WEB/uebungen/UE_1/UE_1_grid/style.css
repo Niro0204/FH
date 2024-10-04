@@ -1,0 +1,167 @@
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(224, 220, 220);
+    padding-bottom: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+header > h1{
+    margin: 0;
+    font-family:"Playfair Display";
+    font-weight: 400;
+    color: rgb(43, 43, 43);
+    font-size: 40px;
+}
+
+header > a{
+    text-decoration: none;
+    color:  rgb(95, 95, 95);
+    font-family: Arial;
+}
+
+header > button{
+    color: rgb(85, 85, 85);
+    background-color: white;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    border: 1px solid rgb(85, 85, 85);
+}
+
+p {
+    font-family: Arial;
+}
+
+button:hover {
+    background: rgb(85, 85, 85);
+    color: white;
+}
+
+.menu-stripe {
+    padding: 20px 30px;
+}
+.menu-stripe ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.menu-stripe ul li a {
+    text-decoration: none;
+    font-family: Arial;
+    color: grey; 
+}
+
+
+.main-container {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 50px;
+    row-gap:50px;
+}
+
+.top-banner {
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    border: 1px solid grey;
+    border-radius: 7px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 30px;
+    background-color: rgb(66, 66, 75);
+    color: white;
+}
+
+.top-banner h2{
+    font-family:"Playfair Display";
+    font-size: 32px;
+    font-weight: 400;
+}
+
+#box_1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#box_2{
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 48%;
+    overflow: hidden;
+}
+
+.box-content {
+    order: 1;
+    padding: 20px;
+    width: 60%;
+}
+
+.thumbnail {
+    order: 2;
+    background-color: #6c757d;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.category {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.blue {
+    color: #007bff;
+}
+
+.green {
+    color: #28a745;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.date {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
