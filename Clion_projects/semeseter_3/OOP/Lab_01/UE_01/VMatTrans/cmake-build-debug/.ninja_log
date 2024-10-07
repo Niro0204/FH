@@ -1,0 +1,7 @@
+# ninja log v6
+1	93	1728319741524275840	CMakeFiles/VMatTrans.dir/main.cpp.o.ddi	f2ca6d1afe8411ec
+93	103	1728319741624277554	CMakeFiles/VMatTrans.dir/CXX.dd	df8e9ebcd073fd41
+93	103	1728319741624277554	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_01/UE_01/VMatTrans/cmake-build-debug/CMakeFiles/VMatTrans.dir/CXXModules.json	df8e9ebcd073fd41
+93	103	1728319741624277554	CMakeFiles/VMatTrans.dir/main.cpp.o.modmap	df8e9ebcd073fd41
+103	557	1728319741624277554	CMakeFiles/VMatTrans.dir/main.cpp.o	c843fbab465e0676
+558	623	1728319742080952030	VMatTrans	ffce19c6054319e4

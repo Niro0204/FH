@@ -1,0 +1,7 @@
+# ninja log v6
+1	184	1728243448261976746	CMakeFiles/AkNum.dir/main.cpp.o.ddi	bf3a3683849850c8
+184	195	1728243448455311344	CMakeFiles/AkNum.dir/CXX.dd	f60c2ed310122090
+184	195	1728243448455311344	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_01/UE_01/AkNum/cmake-build-debug/CMakeFiles/AkNum.dir/CXXModules.json	f60c2ed310122090
+184	195	1728243448455311344	CMakeFiles/AkNum.dir/main.cpp.o.modmap	f60c2ed310122090
+195	1297	1728243448455311344	CMakeFiles/AkNum.dir/main.cpp.o	911ef6eb74617b3
+1298	1382	1728243449558651897	AkNum	70dbcadb9c0c0666

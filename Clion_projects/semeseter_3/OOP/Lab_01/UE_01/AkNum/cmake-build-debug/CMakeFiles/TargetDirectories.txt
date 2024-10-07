@@ -1,0 +1,3 @@
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_01/UE_01/AkNum/cmake-build-debug/CMakeFiles/AkNum.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_01/UE_01/AkNum/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_01/UE_01/AkNum/cmake-build-debug/CMakeFiles/rebuild_cache.dir
