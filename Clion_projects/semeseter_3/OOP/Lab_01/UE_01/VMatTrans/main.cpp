@@ -1,6 +1,18 @@
 #include <iostream>
+#include <vector>
+
+class jaggedArray {
+
+    private:
+        std::vector<std::vector<int>> array;
+
+    public:
+
+}
+
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }
