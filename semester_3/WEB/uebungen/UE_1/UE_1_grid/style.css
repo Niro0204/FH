@@ -176,8 +176,9 @@ footer {
     background-color: lightgrey;
     margin-top: 20px;
     margin: 0px;
-    width: 100vw;
-    margin-left: -40px;
+    margin-left: -40px; /* Negatives Margin für die linke Seite */
+    margin-right: -40px; /* Negatives Margin für die rechte Seite */
+    width: calc(100% + 80px); /* Breite erhöhen, um das negative Margin auszugleichen */
     
 }
 
