@@ -105,6 +105,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     width: 40%;
+    border-right: solid 1px grey;
+    border-radius: 10px;
     font-size: 1.5rem;
     font-weight: bold;
 }
