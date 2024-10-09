@@ -1,0 +1,7 @@
+# ninja log v6
+1	98	1728467318768181207	CMakeFiles/Lab.dir/main.cpp.o.ddi	d55e74c0c87f3217
+98	107	1728467318874840243	CMakeFiles/Lab.dir/CXX.dd	8477a8ed3b0deded
+98	107	1728467318874840243	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_02/Lab/cmake-build-debug/CMakeFiles/Lab.dir/CXXModules.json	8477a8ed3b0deded
+98	107	1728467318874840243	CMakeFiles/Lab.dir/main.cpp.o.modmap	8477a8ed3b0deded
+107	551	1728467318874840243	CMakeFiles/Lab.dir/main.cpp.o	658c1ae95675d749
+552	618	1728467319318142361	Lab	39b9c7f4e7f22806
