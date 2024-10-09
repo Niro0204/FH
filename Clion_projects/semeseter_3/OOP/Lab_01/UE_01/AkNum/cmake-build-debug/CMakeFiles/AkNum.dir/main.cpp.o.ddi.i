@@ -63000,7 +63000,7 @@ class AKNum {
 
     public:
 
-        AKNum(int input) : inputNum{input}{}
+        explicit AKNum(int input) : inputNum{input}{}
 
 
         void getDigits();
