@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/skat.dir/main.cpp.o -o skat
