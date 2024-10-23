@@ -42,7 +42,7 @@ std::shared_ptr<Konto> findAccount(const std::vector<std::shared_ptr<Konto>>& ko
             return konto;
         }
     }
-    return nullptr; // Konto nicht gefunden
+    return nullptr;
 }
 
 
@@ -62,17 +62,17 @@ double addMoney(std::vector<std::shared_ptr<Konto>>& kontos){
 
     std::cout << "Betrag zum Einzahlen: ";
     std::cin >> amount;
-    std::cin.ignore(); // Puffer leeren
+    std::cin.ignore();
 
     if (amount <= 0) {
         std::cerr << "Der Betrag muss positiv sein!" << std::endl;
-        return -1; // oder eine andere Fehlerbehandlung
+        return -1;
     }
 
     double newBetrag = currentKonto->deposMoney(amount);
     std::cout << "Betrag erfolgreich eingezahlt!" << std::endl;
 
-    return newBetrag;//currentKonto->get_betrag();
+    return newBetrag;
 }
 
 double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos)
@@ -91,11 +91,11 @@ double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos)
 
     std::cout << "Betrag zum Abheben: ";
     std::cin >> amount;
-    std::cin.ignore(); // Puffer leeren
+    std::cin.ignore();
 
     if (amount <= 0) {
         std::cout << "Der Betrag muss positiv sein!" << std::endl;
-        return -1; // oder eine andere Fehlerbehandlung
+        return -1;
     }
 
     double newBetrag = currentKonto->withdrawMoney(amount);
@@ -107,7 +107,6 @@ double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos)
 
 }
 
-//void save(std::vector<std::shared_ptr<Konto>>& kontos)
 
 int main(){
 
@@ -118,12 +117,12 @@ int main(){
         std::cout << "\n--- Menü ---\n";
         std::cout << "1. Konto erstellen\n";
         std::cout << "2. Geld einzahlen\n";
-        std::cout << "3. Geld abheben\n"; // Neue Option hinzufügen
+        std::cout << "3. Geld abheben\n";
         std::cout << "4. Konten auflisten\n";
         std::cout << "5. Beenden\n";
         std::cout << "Wählen Sie eine Option: ";
         std::cin >> choice;
-        std::cin.ignore(); // Puffer leeren
+        std::cin.ignore();
 
         switch (choice) {
         case 1:
@@ -133,7 +132,7 @@ int main(){
             addMoney(kontos);
             break;
         case 3:
-            takeMoney(kontos); // Funktion zum Geld abheben aufrufen
+            takeMoney(kontos);
             break;
         case 4:
             listAccounts(kontos);
