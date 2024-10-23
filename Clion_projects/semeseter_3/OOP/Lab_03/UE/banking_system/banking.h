@@ -18,7 +18,7 @@ class Konto {
 
     double deposMoney(double);
     double withdrawMoney(double);
-    int saveInFile() const;
+    int saveInFile(std::string&) const;
 };
 
 

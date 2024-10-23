@@ -28,11 +28,11 @@ double Konto::withdrawMoney(const double withdrMny)
 
 
 
-int Konto::saveInFile() const{
+int Konto::saveInFile(std::string& filename) const{
 
     std::ofstream file;
 
-    file.open("savedAccounts.txt",std::ios::app);
+    file.open(filename,std::ios::out);
 
     if(!file.is_open()){
         std::cerr << "opening file failed" << std::endl;
