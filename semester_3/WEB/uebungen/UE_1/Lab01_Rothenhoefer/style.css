@@ -12,9 +12,6 @@ header{
     align-items: center;
     border-bottom: 1px solid rgb(224, 220, 220);
     padding-bottom: 15px;
-    /*margin-left: 30px;
-    margin-right: 30px;
-    */
 }
 
 header > h1{
@@ -66,21 +63,16 @@ button:hover {
     color: grey; 
 }
 
-
 .box-container {
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 50px;
-    row-gap:50px;
-   
+    row-gap:50px; 
 }
 
 .top-banner {
-
     grid-column: 1 / 5;
-
     border: 1px solid grey;
     border-radius: 7px;
     padding: 30px;
@@ -143,6 +135,7 @@ main {
 main > hr {
     border: 1px solid lightgray;
     margin-right: 10px;
+    
 }
 
 .sticky {
@@ -155,6 +148,12 @@ aside {
     margin-top: 20px;
     padding: 0px;
     padding-top: 0px;
+}
+
+.archive ul{
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0px;
 }
 
 .about {
@@ -177,6 +176,10 @@ aside {
     padding-bottom: 15px;
 }
 
+blockquote{
+    font-family: Arial;
+}
+
 footer {
     text-align: center;
     padding: 10px;
@@ -186,9 +189,7 @@ footer {
     margin-left: -40px;
     margin-right: -40px; 
     width: calc(100% + 80px); 
-    
 }
-
 
 #blue {
     color: #007bff;

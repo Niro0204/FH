@@ -40,10 +40,19 @@ std::array<std::shared_ptr<card>,32> fillDeck(std::array<std::shared_ptr<card>,3
     return cardDeck;
 }
 
+void printDeck(std::array<std::shared_ptr<card>,32>& cardDeck) {
+    for(int i = 0; i < cardDeck.size(); i++) {
+        std::cout << cardDeck[i]->color;
+        std::cout << cardDeck[i]->worth;
+    }
+}
+
 int main(){
 
     std::array<std::shared_ptr<card>,32> deck;
     deck = fillDeck(deck);
+
+    printDeck(deck);
 
     return 0;
 }
