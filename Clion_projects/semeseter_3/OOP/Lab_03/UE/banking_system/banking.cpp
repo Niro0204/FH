@@ -7,11 +7,32 @@
 #include <fstream>
 #include "banking.h"
 
-int Konto::saveInFile(){
+double Konto::deposMoney(const double addMny)
+{
+    betrag += addMny;
+    return betrag;
+}
+
+double Konto::withdrawMoney(const double withdrMny)
+{
+    if (withdrMny > betrag)
+    {
+        std::cerr << "Nicht genügend Guthaben für diese Transaktion!" << std::endl;
+    }
+    else
+    {
+        betrag -= withdrMny;
+    }
+    return betrag;
+}
+
+
+
+int Konto::saveInFile(std::string& filename) const{
 
     std::ofstream file;
 
-    file.open("tasks.txt",std::ios::app);
+    file.open(filename,std::ios::out);
 
     if(!file.is_open()){
         std::cerr << "opening file failed" << std::endl;
