@@ -24,14 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90652245-c681-4253-bf96-e5e280ac16e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/banking.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab_02/UE/LIFO++/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab_02/UE/LIFO++/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab_01/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab_01/.idea/editor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab_01/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab_01/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab_01/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +103,7 @@
       <workItem from="1729249926112" duration="1236000" />
       <workItem from="1729407907262" duration="315000" />
       <workItem from="1729596491052" duration="190000" />
+      <workItem from="1729662584144" duration="12000" />
     </task>
     <servers />
   </component>
