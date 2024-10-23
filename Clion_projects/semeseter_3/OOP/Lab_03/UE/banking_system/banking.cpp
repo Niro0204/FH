@@ -7,13 +7,13 @@
 #include <fstream>
 #include "banking.h"
 
-int Konto::addMoney(const int addMny)
+double Konto::deposMoney(const double addMny)
 {
     betrag += addMny;
     return betrag;
 }
 
-int Konto::withdrawMoney(const int withdrMny)
+double Konto::withdrawMoney(const double withdrMny)
 {
     if (withdrMny > betrag)
     {

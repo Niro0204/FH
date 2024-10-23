@@ -8,16 +8,16 @@
 class Konto {
     private:
         std::string name;
-        int betrag{};
+        double betrag{};
     public:
     explicit Konto(std::string name){this->name=std::move(name);}
-    explicit Konto(std::string name,int betrag){this->name=std::move(name);this->betrag=betrag;}
+    explicit Konto(std::string name,double betrag){this->name=std::move(name);this->betrag=betrag;}
 
     int get_betrag()const{return this->betrag;}
     std::string get_name()const{return this->name;}
 
-    int addMoney(int);
-    int withdrawMoney(int);
+    double deposMoney(double);
+    double withdrawMoney(double);
     int saveInFile() const;
 };
 
