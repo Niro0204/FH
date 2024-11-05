@@ -24,18 +24,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90652245-c681-4253-bf96-e5e280ac16e3" name="Changes" comment="banking system continued 2">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../banking_system_v2/banking.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../banking_system_v2/banking.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../banking_system_v2/savedAccounts.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/reactive_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/banking_system.dir/banking.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/banking_system.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/banking.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking.h" beforeDir="false" afterPath="$PROJECT_DIR$/banking.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/img/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/js/vendor/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.config.dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.config.prod.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +114,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -118,7 +151,9 @@
       <workItem from="1729662445620" duration="5843000" />
       <workItem from="1729668294700" duration="2421000" />
       <workItem from="1729679127191" duration="28000" />
-      <workItem from="1729679162022" duration="1326000" />
+      <workItem from="1729679162022" duration="2087000" />
+      <workItem from="1730642283674" duration="2860000" />
+      <workItem from="1730817486704" duration="225000" />
     </task>
     <task id="LOCAL-00001" summary="banking system continued">
       <option name="closed" value="true" />

@@ -12,7 +12,44 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="425319e5-2889-4df2-aee0-a7b1901f2212" name="Changes" comment="web tech" />
+    <list default="true" id="425319e5-2889-4df2-aee0-a7b1901f2212" name="Changes" comment="web tech">
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Lab04/Lab/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Lab04/Lab/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../banking_system/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../banking_system/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/reactive_web/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/img/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/js/vendor/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.config.dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../WEB/Lab02/untitled/webpack.config.prod.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +108,8 @@
       <updated>1729596681521</updated>
       <workItem from="1729596683794" duration="574000" />
       <workItem from="1729597265844" duration="120000" />
+      <workItem from="1729925283487" duration="56000" />
+      <workItem from="1729925346874" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="web tech">
       <option name="closed" value="true" />

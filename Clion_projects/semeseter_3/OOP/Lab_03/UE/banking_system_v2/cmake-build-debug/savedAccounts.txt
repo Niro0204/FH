@@ -1,0 +1,27 @@
+Kontoinhaber: nico
+Betrag: 0
+
+Kontoinhaber: elisa
+Betrag: 0
+
+Kontoinhaber: niklas
+Betrag: 0
+
+Kontoinhaber: nico
+Betrag: 0
+
+Kontoinhaber: niklas
+Betrag: 0
+
+Kontoinhaber: nico
+Betrag: 0
+
+Kontoinhaber: niklas
+Betrag: 0
+
+Kontoinhaber: nico
+Betrag: 0
+
+Kontoinhaber: niklas
+Betrag: 0
+
