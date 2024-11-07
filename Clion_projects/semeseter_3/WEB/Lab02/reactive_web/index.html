@@ -8,29 +8,32 @@
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<div id="top">
+  <h1>Pixel</h1>
+  <div id="burger-menu" onclick="toggleMenu()">&#9776;</div>
+  <nav id="navi">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
 
 <section id="about">
-  <h1>Welcome to My Portfolio</h1>
-  <h1>Yo yo, what’s poppin’ Leute!</h1>
+  <h2>Pixelzähler</h2>
 
-  <p>Ich bin Niro, der OG Code Wizard und certified Chaos-King vom Kabelsalat-Game. Wenn Multitasking ne Superpower wär, wär ich basically der Hulk – ich schieb mir ’nen Kaffee rein und vergess trotzdem in 2 Sekunden, wieso ich meinen Laptop überhaupt angeschmissen hab. <strong>Deadass.</strong></p>
+  <p>„Zählen Sie die Pixel, und die Welt wird Ihnen gehören.“</p>
 
-  <p>Ich wühl’ mich daily durch diese ganzen C++-Vibes und sammel Fehlermeldungen wie NFTs. Studier Medieninformatik und hab nen Traum: ’ne Kaffeemaschine zu erfinden, die checkt, wann ich nen Brain Lag hab und mir nen „Bro, du wolltest XY machen“-Reminder haut. 💀</p>
+  <p>Willkommen in meiner Welt, in der Pixel mehr sind als nur kleine Bildpunkte
+    <br>– sie sind bedeutungsvolle Einheiten! Als einer der besten Pixelzähler der Branche (und ja, ich zähle wirklich alle),
+    <br>widme ich mich der Kunst des Zählens und Analysierens von Pixeln in Webseiten, Apps und digitalen Designs.
+    <br>Für mich ist kein Pixel zu klein, um nicht gezählt zu werden.</p>
 
-  <p>Ich bin auch lowkey auf’m Weg, den Guinness World Record für den längsten, sinnlosesten Variablennamen zu claimen – <em>dream big or go home, right?</em> Also falls ihr nen Homie braucht, der beim Team hockt, chaotische Code-Creations ballert und am Kaffeetisch die wildesten Storytimes droppt – das isses, ich bin euer Mann.</p>
 
-  <p>Freu mich jetzt schon auf die 🔥 Debugging-Sessions und die ganzen epischen Coding-Momente mit euch.</p>
 
-  <p><strong>Stay real,</strong><br>
-    Niro aka der Lord of Lost Variables</p>
 </section>
 
 <section id="skills">
@@ -59,16 +62,21 @@
   <h2>Projects</h2>
   <div id="project-container">
     <div class="project-card">
-      <h3>Project 1</h3>
-      <p>Description of Project 1.</p>
+      <h2>App 1: Die 'Hast du deinen Schatten heute gesehen?' App</h2>
+      <p><strong>Problem:</strong> Viele Menschen vergessen im stressigen Alltag, ihren Schatten zu checken.</p>
+      <p><br><strong>Lösung:</strong> Diese App erinnert dich alle paar Stunden daran, deinen Schatten zu betrachten, auch wenn du gerade nicht draußen bist. Die Benachrichtigung kommt auch in den seltsamsten Situationen (z.B. beim Essen, beim Schlafen oder im Aufzug), um sicherzustellen, dass du nicht den Kontakt zu deinem Schatten verlierst. Die App ist in der Lage, den "Idealzustand" deines Schattens zu erkennen und gibt Tipps, wie du ihn optimieren kannst, falls er mal schwach aussieht (z.B. bei schlechtem Licht).</p>
     </div>
     <div class="project-card">
-      <h3>Project 2</h3>
-      <p>Description of Project 2.</p>
+      <h2>App 2: Die 'Warum wächst meine Pflanze langsamer als die deines Nachbarn?' App</h2>
+      <p><strong>Problem:</strong> Du hast das Gefühl, dass deine Pflanze langsamer wächst als die deines Nachbarn und du weißt einfach nicht warum.</p>
+      <p><br><strong>Lösung:</strong> Diese App analysiert nicht nur das Wachstum deiner Pflanze (mit eingebautem Wachstum-Tracking-Algorithmus), sondern vergleicht es mit dem Wachstum von Pflanzen anderer Menschen in der Umgebung. Du erhältst detaillierte Statistiken darüber, wie schnell deine Pflanze im Vergleich zu anderen wächst, und bekommst unangemessene, aber motivierende Nachrichten wie: "Deine Pflanze braucht mehr Liebe als die deines Nachbarn – gib ihr mehr Wasser, sonst wird sie dich verlassen." Wenn die Pflanze dann doch mal schneller wächst, kannst du der App sagen, wie stolz du bist, was eine virtuelle Medaille freischaltet.</p>
+
     </div>
     <div class="project-card">
-      <h3>Project 3</h3>
-      <p>Description of Project 3.</p>
+      <h2>Die Website zur Anzeige der zufälligen Position von Pixeln</h2>
+      <p><strong>Problem:</strong> Es gibt einfach zu wenig Websites, die sich auf die zufällige Positionierung von einzelnen Pixeln konzentrieren. Die Menschen wissen nie, wo genau ein Pixel auf dem Bildschirm auftauchen wird.</p>
+      <p><br><strong>Lösung:</strong> Diese Website generiert jede Sekunde einen neuen Pixel auf dem Bildschirm – völlig zufällig, an einer zufälligen Position. Du kannst den Pixel nicht bewegen, vergrößern oder anderweitig beeinflussen. Der Pixel wird für genau eine Sekunde angezeigt und verschwindet dann wieder, um Platz für den nächsten zufälligen Pixel zu machen. Es gibt keine Funktionen, keinen Zweck und keinerlei Interaktivität – nur zufällig platzierte Pixel. Es ist die wahre Essenz des Internets in seiner absurden Form.</p>
+
     </div>
   </div>
 </section>
@@ -76,15 +84,15 @@
 <section id="contact">
   <h2>Contact</h2>
   <div id="chat-messages"></div>
-  <form id="chat-form">
-    <label for="name">Username:</label>
-    <input type="text" name="name" id="name" required>
+    <form id="chat-form">
+      <label for="name">Username:</label>
+      <input type="text" name="name" id="name" required>
 
-    <label for="message">Message:</label>
-    <input type="text" name="message" id="message" required placeholder="Nachricht">
+      <label for="message">Message:</label>
+      <input type="text" name="message" id="message" required placeholder="Nachricht">
 
-    <input type="submit" value="Senden">
-  </form>
+      <input type="submit" value="Senden">
+    </form>
 </section>
 
 <!-- Footer -->

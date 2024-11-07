@@ -1,21 +1,38 @@
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "DejaVu Sans Mono", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #660d20;
-  background-image: url("90s-wallpaper.jpg");
+  background-color: #ffffff;
+
 }
 
 h1, h2 {
   text-align: center;
-  color: #333;
+  color: #000000;
+  font-family: "DejaVu Sans Mono", serif;
+  font-weight: normal;
 }
 
 p {
   line-height: 1.6;
   margin: 0 15px;
+  color: #000000;
+}
+
+#top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 100px;
+
+}
+
+#burger-menu {
+  display: none; /* Wird auf größeren Bildschirmen nicht angezeigt */
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 nav {
@@ -36,7 +53,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: #000000;
   text-decoration: none;
   font-weight: bold;
 }
@@ -45,32 +62,25 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+
 section {
   padding: 20px 0;
   margin: 10px;
 }
 
 #about {
-  background-color: rgba(0, 167, 255, 0.98);
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 10px;
+  background-color: rgba(142, 212, 255, 0.8);
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 #skills {
-  /*background-color: #e2e2e2;*/
-}
-
-#projects{
-  /*background-color: #ccc;*/
-}
-
-#project-container {
-  display: flex;
-  justify-content: space-evenly;
-
-
-}
-
-#contact {
-  /*background-color: #ddd;*/
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .progress-bar {
@@ -90,10 +100,25 @@ section {
   border-radius: 5px 0 0 5px;
 }
 
+#projects{
+  /*background-color: #ccc;*/
+}
+
+#project-container {
+  display: flex;
+  justify-content: space-evenly;
+
+
+}
+
 .project-card {
   background-color: #fff;
-  margin: 15px;
+  margin: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
   padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 70px;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
@@ -101,6 +126,19 @@ section {
 .project-card h3 {
   margin-top: 0;
 }
+
+#contact {
+  margin-right: 30px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#chat-messages{
+  border: 1px solid #adacb0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 
 form {
   display: flex;
@@ -145,6 +183,11 @@ footer {
   .progress-bar, form {
     width: 90%;
   }
+
+  #project-container {
+    display: block; /* Elemente untereinander auf kleinen Bildschirmen */
+    padding: 10px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -152,7 +195,46 @@ footer {
     font-size: 1.2rem;
   }
 
-  .progress-bar, form {
+  nav ul li {
+    display: block;
+    margin: 5px 0;
+  }
+
+  #navi{
+    display: none; /* Versteckt die Navigation standardmäßig */
+    flex-direction: column;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #navi a {
+    padding: 10px 0;
+    color: #333;
+  }
+
+  #burger-menu {
+    display: block; /* Zeigt das Burger-Menü auf kleineren Bildschirmen an */
+  }
+
+  #burger-menu:active + #navi,
+  #burger-menu:hover + #navi,
+  #navi:focus-within ul,
+  #navi:hover{
+    display: block;
+  }
+
+ .progress-bar, form {
     width: 100%;
+  }
+
+
+  #project-container {
+    display: block; /* Elemente untereinander auf kleinen Bildschirmen */
+    padding: 10px;
   }
 }
