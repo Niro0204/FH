@@ -1,0 +1,25 @@
+# ninja log v6
+2	113	1730819224402338215	CMakeFiles/Lab.dir/main.cpp.o.ddi	33a684e041cc55d6
+113	123	1730819224522339753	CMakeFiles/Lab.dir/CXX.dd	8477a8ed3b0deded
+113	123	1730819224522339753	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/Lab/cmake-build-debug/CMakeFiles/Lab.dir/CXXModules.json	8477a8ed3b0deded
+113	123	1730819224522339753	CMakeFiles/Lab.dir/main.cpp.o.modmap	8477a8ed3b0deded
+123	623	1730819224522339753	CMakeFiles/Lab.dir/main.cpp.o	f1fc130c96d75b02
+624	706	1730819225022346158	Lab	39b9c7f4e7f22806
+3	130	1730820317383637367	CMakeFiles/Lab.dir/main.cpp.o.ddi	33a684e041cc55d6
+130	140	1730820317513638327	CMakeFiles/Lab.dir/CXX.dd	8477a8ed3b0deded
+130	140	1730820317513638327	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/Lab/cmake-build-debug/CMakeFiles/Lab.dir/CXXModules.json	8477a8ed3b0deded
+130	140	1730820317513638327	CMakeFiles/Lab.dir/main.cpp.o.modmap	8477a8ed3b0deded
+140	938	1730820317523638401	CMakeFiles/Lab.dir/main.cpp.o	f1fc130c96d75b02
+938	1019	1730820318320310953	Lab	39b9c7f4e7f22806
+3	121	1730820390997537517	CMakeFiles/Lab.dir/main.cpp.o.ddi	33a684e041cc55d6
+121	128	1730820391114205118	CMakeFiles/Lab.dir/CXX.dd	8477a8ed3b0deded
+121	128	1730820391114205118	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/Lab/cmake-build-debug/CMakeFiles/Lab.dir/CXXModules.json	8477a8ed3b0deded
+121	128	1730820391114205118	CMakeFiles/Lab.dir/main.cpp.o.modmap	8477a8ed3b0deded
+128	921	1730820391120871838	CMakeFiles/Lab.dir/main.cpp.o	f1fc130c96d75b02
+921	1006	1730820391914211522	Lab	39b9c7f4e7f22806
+4	151	1730820462634796586	CMakeFiles/Lab.dir/main.cpp.o.ddi	33a684e041cc55d6
+151	157	1730820462781464503	CMakeFiles/Lab.dir/CXX.dd	8477a8ed3b0deded
+151	157	1730820462781464503	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/Lab/cmake-build-debug/CMakeFiles/Lab.dir/CXXModules.json	8477a8ed3b0deded
+151	157	1730820462781464503	CMakeFiles/Lab.dir/main.cpp.o.modmap	8477a8ed3b0deded
+158	965	1730820462788131227	CMakeFiles/Lab.dir/main.cpp.o	f1fc130c96d75b02
+966	1050	1730820463598138136	Lab	39b9c7f4e7f22806
