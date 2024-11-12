@@ -106,16 +106,11 @@ section {
 
 #project-container {
   display: flex;
-  justify-content: space-evenly;
-
-
 }
 
 .project-card {
   background-color: #fff;
   margin: 20px;
-  margin-left: 70px;
-  margin-right: 70px;
   padding: 20px;
   padding-top: 30px;
   padding-bottom: 70px;
@@ -137,6 +132,10 @@ section {
   border: 1px solid #adacb0;
   margin-left: 20px;
   margin-right: 20px;
+  max-height: 300px; /* Limitiert die Höhe der Chatbox */
+  overflow-y: auto; /* Scrollbar, wenn die Nachrichtenbox zu voll wird */
+  word-wrap: break-word; /* Bricht den Text bei Bedarf um */
+  overflow-wrap: break-word; /* Alternative für neuere Browser */
 }
 
 
@@ -225,6 +224,7 @@ footer {
   #burger-menu:hover + #navi,
   #navi:focus-within ul,
   #navi:hover{
+
     display: block;
   }
 
