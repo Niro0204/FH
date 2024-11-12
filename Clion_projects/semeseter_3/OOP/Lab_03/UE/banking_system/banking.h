@@ -43,7 +43,7 @@ public:
     explicit Konto(std::string name){this->name=std::move(name);}
     explicit Konto(std::string name,double betrag){this->name=std::move(name);this->betrag=betrag;}
 
-    int get_betrag()const{return this->betrag;}
+    double get_betrag()const{return this->betrag;}
     std::string get_name()const{return this->name;}
 
     double deposMoney(double);

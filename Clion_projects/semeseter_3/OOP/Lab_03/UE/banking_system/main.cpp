@@ -234,7 +234,7 @@ double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos)
     std::cout << "Geben Sie den Namen des Kontoinhabers ein: ";
     std::getline(std::cin, accountName);
 
-    auto currentKonto = findAccount(kontos, accountName);
+    const auto currentKonto = findAccount(kontos, accountName);
     if (!currentKonto) {
         std::cout << "Konto mit dem Namen \"" << accountName << "\" nicht gefunden." << std::endl;
         return -1;
