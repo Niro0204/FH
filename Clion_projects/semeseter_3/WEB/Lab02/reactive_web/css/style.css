@@ -107,15 +107,13 @@ section {
 #project-container {
   display: flex;
   justify-content: space-evenly;
-
-
 }
 
 .project-card {
   background-color: #fff;
   margin: 20px;
-  margin-left: 70px;
-  margin-right: 70px;
+  /*margin-left: 70px;
+  /*margin-right: 70px;*/
   padding: 20px;
   padding-top: 30px;
   padding-bottom: 70px;
@@ -137,14 +135,20 @@ section {
   border: 1px solid #adacb0;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 
 form {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 80%;
+  display: block;
+  padding-left: 20px
+ /* flex-direction: column;
+  /*margin: 0 auto;*/
+  /*width: 80%;*/
 }
 
 form label {
@@ -154,6 +158,14 @@ form label {
 form input[type="text"], form input[type="submit"] {
   padding: 10px;
   margin-bottom: 10px;
+}
+
+#message-label{
+  margin-right: 9px;
+}
+
+#message{
+  width: 600px;
 }
 
 form input[type="submit"] {
@@ -187,6 +199,24 @@ footer {
   #project-container {
     display: block; /* Elemente untereinander auf kleinen Bildschirmen */
     padding: 10px;
+  }
+
+  #chat-form{
+    display: block;
+  }
+
+  #message-container{
+    display:flex;
+    align-content: center;
+  }
+
+  #message {
+    width: 500px;
+  }
+
+  #message-label{
+    align-content: center;
+    margin-right: 19px;
   }
 }
 
@@ -223,9 +253,13 @@ footer {
 
   #burger-menu:active + #navi,
   #burger-menu:hover + #navi,
-  #navi:focus-within ul,
   #navi:hover{
     display: block;
+  }
+
+  #about{
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
  .progress-bar, form {
@@ -236,5 +270,33 @@ footer {
   #project-container {
     display: block; /* Elemente untereinander auf kleinen Bildschirmen */
     padding: 10px;
+  }
+  .project-card{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #contact{
+    margin: 20px;
+    /*margin-left: 70px;
+    /*margin-right: 70px;*/
+    padding: 0 0 70px;
+  }
+
+  #chat-messages{
+    margin-bottom: 20px;
+  }
+
+ /*#name,#message{
+   margin-left: 10px;
+   margin-right: 10px;
+ }*/
+
+  #chat-form{
+    padding-left: 20px;
+    padding-right: 500px;
+
   }
 }

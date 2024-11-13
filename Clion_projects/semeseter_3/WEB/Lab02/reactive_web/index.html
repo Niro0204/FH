@@ -85,13 +85,17 @@
   <h2>Contact</h2>
   <div id="chat-messages"></div>
     <form id="chat-form">
-      <label for="name">Username:</label>
-      <input type="text" name="name" id="name" required>
+      <div id="user-container">
+        <label for="name">Username:</label>
+        <input type="text" name="name" id="name" required>
+      </div>
 
-      <label for="message">Message:</label>
-      <input type="text" name="message" id="message" required placeholder="Nachricht">
+      <div id="message-container">
+        <label for="message" id="message-label">Message:</label>
+        <input type="text" name="message" id="message" required placeholder="Nachricht">
+        <input type="submit" value="Senden">
+      </div>
 
-      <input type="submit" value="Senden">
     </form>
 </section>
 
