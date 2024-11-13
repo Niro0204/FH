@@ -1,20 +1,5 @@
-Konto: nico
+Konto: Anel
 Transaktion: Einzahlung
-Betrag: 2345
-Neuer Kontostand: 2345n
-Einzahlung: 2345 auf Konto von nico
-Konto: elisa
-Transaktion: Einzahlung
-Betrag: 5.45456e+10
-Neuer Kontostand: 5.45456e+10n
-Einzahlung: 5.45456e+10 auf Konto von elisa
-Konto: niklas
-Transaktion: Einzahlung
-Betrag: 4.56789e+06
-Neuer Kontostand: 4.56789e+06n
-Einzahlung: 4.56789e+06 auf Konto von niklas
-Konto: nico
-Transaktion: Einzahlung
-Betrag: 1000
-Neuer Kontostand: 1000n
-Einzahlung: 1000 auf Konto von nico
+Betrag: 5.55446e+06
+Neuer Kontostand: 5.71601e+06n
+Einzahlung: 5.55446e+06 auf Konto von Anel

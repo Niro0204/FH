@@ -2,11 +2,14 @@
 #include <vector>
 #include <memory>
 #include <fstream> // Für das Lesen der Transaktionsdatei
+#include <limits>
+#include <sstream>
 #include "banking.h"
 
 // Funktion zum Erstellen eines neuen Kontos
 void openAccount(std::vector<std::shared_ptr<Konto>>& kontos) {
     std::string accountName;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "Geben Sie den Namen des Kontoinhabers ein: ";
     std::getline(std::cin, accountName);
 
@@ -17,10 +20,89 @@ void openAccount(std::vector<std::shared_ptr<Konto>>& kontos) {
 
     auto newAccount = std::make_shared<Konto>(accountName);
     kontos.push_back(newAccount);
-    if(newAccount->saveInFile() != 0) {
+    /*if(newAccount->saveInFile() != 0) {
         std::cerr << "Error during saveInFile" << std::endl;
-    };  // Konto beim Erstellen speichern
+    };  // Konto beim Erstellen speichern*/
     std::cout << "Konto für " << accountName << " erfolgreich erstellt!" << std::endl;
+}
+
+
+int saveInFile(std::vector<std::shared_ptr<Konto>>& kontos,const std::string& fileName){
+
+    std::ofstream file("/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt", std::ios::trunc);
+
+    if (!file.is_open()) {
+        std::cerr << "Fehler beim Öffnen der Datei" << std::endl;
+        return -1; // Fehlercode zurückgeben
+    }
+
+    for(auto& konto : kontos)
+    {
+
+        std::cout << konto->get_name();
+        double dbetrag = konto->get_betrag();
+
+        file << konto->get_name() << "," << std::to_string(dbetrag) << std::endl;
+        file << "\n";
+
+        if (file.fail()) {
+            throw std::runtime_error("Fehler beim schreiben in die Datei");
+        }
+    }
+
+    file.close();
+
+    std::cout << "saved in file" << std::endl;
+
+    return 0;
+}
+
+
+std::vector<std::shared_ptr<Konto>>&  readFromFile(std::vector<std::shared_ptr<Konto>>& newkontos,const std::string& fileName){
+
+    std::ifstream file(fileName);
+
+    if(!file.is_open())
+    {
+        throw std::runtime_error("Fehler beim öffnen Datei");
+    }
+    else if(file.peek() == std::ifstream::traits_type::eof())
+    {
+        return newkontos;
+    }
+
+    std::string line;
+
+    while(std::getline(file, line))
+    {
+        std::stringstream ss(line);
+        std::string name;
+        double betrag;
+
+        std::getline(ss, name, ',');
+        std::string betragStr;
+        std::getline(ss,betragStr,'\n');
+        std::cout << betragStr << std::endl;
+        if(betragStr.empty())
+        {
+            continue;
+        }
+        betrag = std::stod(betragStr);
+        //ss >> betrag;
+
+        if(ss.fail())
+        {
+            throw std::runtime_error("Fehler beim lesen der Datei");
+        }
+
+        auto newKonto =  std::make_shared<Konto>(name, betrag);
+        newkontos.push_back(newKonto);
+    }
+
+    file.close();
+    std::cout << "read from file" << std::endl;
+    return newkontos;
+
 }
 
 // Funktion zum Auflisten aller Konten
@@ -33,6 +115,7 @@ void listAccounts(const std::vector<std::shared_ptr<Konto>>& kontos) {
 
 // Funktion zum Suchen eines bestimmten Kontos
 std::shared_ptr<Konto> findAccount(const std::vector<std::shared_ptr<Konto>>& kontos, const std::string& accountName) {
+
     for (const auto& konto : kontos) {
         if (konto->get_name() == accountName) {
             return konto;
@@ -41,12 +124,14 @@ std::shared_ptr<Konto> findAccount(const std::vector<std::shared_ptr<Konto>>& ko
     return nullptr; // Konto nicht gefunden
 }
 
+
 // Funktion zum Einzahlen von Geld
 double addMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
     std::string accountName;
     double amount;
 
     std::cout << "Geben Sie den Namen des Kontoinhabers ein: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, accountName);
 
     auto currentKonto = findAccount(kontos, accountName);
@@ -57,7 +142,7 @@ double addMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
 
     std::cout << "Betrag zum Einzahlen: ";
     std::cin >> amount;
-    std::cin.ignore(); // Puffer leeren
+    //std::cin.ignore(); // Puffer leeren
 
     if (amount <= 0) {
         std::cerr << "Der Betrag muss positiv sein!" << std::endl;
@@ -75,12 +160,14 @@ double addMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
     return newBetrag;
 }
 
+
 // Funktion zum Abheben von Geld
 double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
     std::string accountName;
     double amount;
 
     std::cout << "Geben Sie den Namen des Kontoinhabers ein: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, accountName);
 
     auto currentKonto = findAccount(kontos, accountName);
@@ -89,24 +176,34 @@ double takeMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
         return -1;
     }
 
-    std::cout << "Betrag zum Abheben: ";
-    std::cin >> amount;
-    std::cin.ignore(); // Puffer leeren
+    while (true) {
+        std::cout << "Betrag zum Abheben: ";
+        std::cin >> amount;
 
-    if (amount <= 0) {
-        std::cerr << "Der Betrag muss positiv sein!" << std::endl;
-        return -1; // oder eine andere Fehlerbehandlung
+        if (std::cin.fail()) {
+            // Eingabefehler (z. B. Text statt Zahl)
+            std::cin.clear(); // Fehlerstatus zurücksetzen
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Eingabepuffer leeren
+            std::cerr << "Ungültige Eingabe! Bitte eine Zahl eingeben." << std::endl;
+        } else if (amount <= 0) {
+            // Geschäftliche Regel: Betrag muss positiv sein
+            std::cerr << "Der Betrag muss positiv sein!" << std::endl;
+        } else {
+            // Gültiger, positiver Betrag
+            break;
+        }
     }
 
     double newBetrag = currentKonto->withdrawMoney(amount);
-    if (newBetrag != -1) {
+
+    /*if (newBetrag != -1) {
         std::cout << "Betrag erfolgreich abgehoben! Neuer Kontostand: " << newBetrag << std::endl;
 
         // Hier Transaktion in die Logdatei schreiben
         std::ofstream logFile("transactionLog.txt", std::ios::app);
         logFile << "Abhebung: " << amount << " von Konto von " << currentKonto->get_name() << "\n";
         logFile.close();
-    }
+    }*/
 
     return newBetrag;
 }
@@ -128,44 +225,69 @@ void showTransactionLog() {
 }
 
 int main() {
-    std::vector<std::shared_ptr<Konto>> kontos;
-    int choice;
+    try
+    {
+        std::vector<std::shared_ptr<Konto>> kontos;
+        kontos = readFromFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt");
+        int choice;
 
-    do {
-        std::cout << "\n--- Menü ---\n";
-        std::cout << "1. Konto erstellen\n";
-        std::cout << "2. Geld einzahlen\n";
-        std::cout << "3. Geld abheben\n";
-        std::cout << "4. Konten auflisten\n";
-        std::cout << "5. Transaktionshistorie anzeigen\n";
-        std::cout << "6. Beenden\n";
-        std::cout << "Wählen Sie eine Option: ";
-        std::cin >> choice;
-        std::cin.ignore(); // Puffer leeren
+        do {
+            std::cout << "\n--- Menü ---\n";
+            std::cout << "1. Konto erstellen\n";
+            std::cout << "2. Geld einzahlen\n";
+            std::cout << "3. Geld abheben\n";
+            std::cout << "4. Konten auflisten\n";
+            std::cout << "5. Transaktionshistorie anzeigen\n";
+            std::cout << "6. Beenden\n";
+            std::cout << "Wählen Sie eine Option: ";
+            std::cin >> choice;
 
-        switch (choice) {
-        case 1:
-            openAccount(kontos);
-            break;
-        case 2:
-            addMoney(kontos);
-            break;
-        case 3:
-            takeMoney(kontos);
-            break;
-        case 4:
-            listAccounts(kontos);
-            break;
-        case 5:
-            showTransactionLog();
-            break;
-        case 6:
-            std::cout << "Programm wird beendet." << std::endl;
-            break;
-        default:
-            std::cout << "Ungültige Wahl, bitte versuchen Sie es erneut." << std::endl;
-        }
-    } while (choice != 6);
+            /*if (std::cin.fail()) {
+                std::cin.clear(); // Fehlerstatus zurücksetzen
+                std::cin.ignore(100, '\n'); // Gesamten Puffer leeren
+                std::cerr << "Ungültige Eingabe!" << std::endl;
+            }*/
+
+            if (std::cin.fail())  {
+                std::cin.clear();             // Setzt den Fehlerzustand von std::cin zurück
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Ungültige Eingabe. Bitte geben Sie eine Zahl zwischen 1 und 6 ein." << std::endl;
+                continue;// Leert den Eingabepuffer// Schleifenanfang neu beginnen
+            }
+
+            // Puffer leeren
+
+            switch (choice) {
+            case 1:
+                openAccount(kontos);
+                break;
+            case 2:
+                addMoney(kontos);
+                break;
+            case 3:
+                takeMoney(kontos);
+                break;
+            case 4:
+                listAccounts(kontos);
+                break;
+            case 5:
+                showTransactionLog();
+                break;
+            case 6:
+                std::cout << "Programm wird beendet." << std::endl;
+                break;
+            default:
+                std::cout << "Ungültige Wahl, bitte versuchen Sie es erneut." << std::endl;
+            }
+            //std::cout << std::endl;
+        } while (choice != 6);
+
+        saveInFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt");
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
     return 0;
 }

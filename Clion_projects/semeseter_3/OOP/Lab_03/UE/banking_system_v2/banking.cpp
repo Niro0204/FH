@@ -8,7 +8,11 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
+#include <memory>
 #include "banking.h"
+
+#include <vector>
 
 double Konto::deposMoney(const double addMny)
 {
@@ -30,16 +34,19 @@ double Konto::withdrawMoney(const double withdrMny)
 
 
 
-int Konto::saveInFile() const{
-    std::ofstream file("savedAccounts.txt", std::ios::app);
+/*int Konto::saveInFile() const{
+
+    std::ofstream file("/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt", std::ios::trunc);
 
     if (!file.is_open()) {
         std::cerr << "Fehler beim Öffnen der Datei" << std::endl;
         return -1; // Fehlercode zurückgeben
     }
     // Schreiben der Kontoinformationen in die Datei
-    file << "Kontoinhaber: " << name << std::endl;
+   /* file << "Kontoinhaber: " << name << std::endl;
     file << "Betrag: " << betrag << std::endl;
+    */
+    /*file << name << "," << betrag << std::endl;
     file << "\n";
     // Überprüfen, ob das Schreiben erfolgreich war
     if (file.fail()) {
@@ -49,11 +56,51 @@ int Konto::saveInFile() const{
 
     file.close();
 
+    std::cout << "saved in file" << std::endl;
+
     return 0;
+}*/
+
+/*std::vector<std::shared_ptr<Konto>>  readFromFile(const std::string& fileName){
+    std::vector<std::shared_ptr<Konto>> kontos;
+    std::ifstream file(fileName);
+
+    if(!file.is_open())
+    {
+        std::cerr << "Fehler beim öffnen der Datei" << std::endl;
+        return kontos;
+    }
+
+    std::string line;
+
+    while(std::getline(file, line))
+    {
+        std::stringstream ss(line);
+        std::string name;
+        double betrag;
+
+        std::getline(ss, name, ',');
+        ss >> betrag;
+
+        if(ss.fail())
+        {
+           std::cerr << "Fehler beim lesen der Datei" << std::endl;
+            return kontos;
+        }
+
+        auto newKonto =  std::make_shared<Konto>(name, betrag);
+        kontos.push_back(newKonto);
+    }
+
+    file.close();
+    std::cout << "read from file" << std::endl;
+    return kontos;
+
 }
+*/
 
 int Konto::logTransaction(const std::string& transactionType, double amount) const {
-    std::ofstream file("transactionLog.txt", std::ios::app);
+    std::ofstream file("transactionLog.txt", std::ios::trunc);
     if (!file.is_open()) {
         std::cerr << "Fehler beim Öffnen der Datei." << std::endl;
         return -1;
