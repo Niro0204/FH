@@ -11,23 +11,6 @@
 #include <utility>
 #include <ctime>
 
-class Konto {
-private:
-    std::string name;
-    double betrag{};
-public:
-    explicit Konto(std::string name){this->name=std::move(name); this->betrag=0;}
-    explicit Konto(std::string name,double betrag){this->name=std::move(name);this->betrag=betrag;}
-
-    double get_betrag()const{return this->betrag;}
-    std::string get_name()const{return this->name;}
-
-    double deposMoney(double);
-    double withdrawMoney(double);
-    //int saveInFile() const;
-    //static std::vector<std::shared_ptr<Konto>>  readFromFile(const std::string& fileName);
-    int logTransaction(const std::string&, double) const;
-};
 
 class Transaction{
 private:
@@ -56,7 +39,7 @@ private:
             << "Datum: " << timestamp << "\n";
     }
 
-    void saveToFile() const {
+ /*   void saveToFile() const {
         std::ofstream logFile("transactionLog.txt", std::ios::app);
         if (logFile.is_open()) {
             logFile << "Transaktion: " << type << "\n"
@@ -69,6 +52,30 @@ private:
             std::cerr << "Fehler beim Öffnen der Datei!" << std::endl;
         }
     }
+    */
+};
+
+class Konto {
+private:
+    int id;
+    static int nextId;
+    std::string name;
+    double betrag{};
+    std::vector<Transaction> transactions;
+
+public:
+    explicit Konto(std::string name) {this->name=std::move(name); this->betrag=0;this->id = nextId++;}
+    explicit Konto(std::string name,double betrag){this->name=std::move(name); this->betrag=betrag; this->id = nextId++;}
+
+    double get_betrag()const{return this->betrag;}
+    std::string get_name()const{return this->name;}
+    int getID()const{return this->id;}
+
+    double deposMoney(double);
+    double withdrawMoney(double);
+    //int saveInFile() const;
+    //static std::vector<std::shared_ptr<Konto>>  readFromFile(const std::string& fileName);
+    int logTransaction(const std::string&, double) const;
 };
 
 

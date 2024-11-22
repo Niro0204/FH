@@ -27,9 +27,9 @@ void openAccount(std::vector<std::shared_ptr<Konto>>& kontos) {
 }
 
 
-int saveInFile(std::vector<std::shared_ptr<Konto>>& kontos,const std::string& fileName){
+int saveInFile(const std::vector<std::shared_ptr<Konto>>& kontos,const std::string& fileName){
 
-    std::ofstream file("/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt", std::ios::trunc);
+    std::ofstream file("/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab04/bankingSystem_v3/savedAccounts.txt", std::ios::trunc);
 
     if (!file.is_open()) {
         std::cerr << "Fehler beim Öffnen der Datei" << std::endl;
@@ -42,8 +42,7 @@ int saveInFile(std::vector<std::shared_ptr<Konto>>& kontos,const std::string& fi
         std::cout << konto->get_name();
         double dbetrag = konto->get_betrag();
 
-        file << konto->getID() << "," << konto->get_name() << "," << std::to_string(dbetrag) << std::endl;
-        file << "\n";
+        file << konto->getID() << "," << konto->get_name() << "," << std::to_string(dbetrag) << "," << konto->displayTransactions().str() << "\n";
 
         if (file.fail()) {
             throw std::runtime_error("Fehler beim schreiben in die Datei");
@@ -58,58 +57,80 @@ int saveInFile(std::vector<std::shared_ptr<Konto>>& kontos,const std::string& fi
 }
 
 
+
 std::vector<std::shared_ptr<Konto>>&  readFromFile(std::vector<std::shared_ptr<Konto>>& newkontos,const std::string& fileName){
+
 
     std::ifstream file(fileName);
 
-    if(!file.is_open())
-    {
-        throw std::runtime_error("Fehler beim öffnen Datei");
-    }
-    else if(file.peek() == std::ifstream::traits_type::eof())
-    {
-        return newkontos;
+    if (!file.is_open()) {
+        throw std::runtime_error("Fehler beim Öffnen der Datei");
     }
 
     std::string line;
-
-    while(std::getline(file, line))
-    {
-        std::stringstream ss(line);
-        std::string name;
-        double betrag;
-
-        std::getline(ss, name, ',');
-        std::string betragStr;
-        std::getline(ss,betragStr,'\n');
-        std::cout << betragStr << std::endl;
-        if(betragStr.empty())
-        {
+    while (std::getline(file, line)) {
+        // Leere Zeilen überspringen
+        if (line.empty()) {
             continue;
         }
-        betrag = std::stod(betragStr);
-        //ss >> betrag;
 
-        if(ss.fail())
-        {
-            throw std::runtime_error("Fehler beim lesen der Datei");
+        std::stringstream ss(line);
+        std::string idstr, name, betragStr;
+        int id = 0;
+        double betrag = 0.0;
+
+        // ID einlesen und konvertieren
+        if (std::getline(ss, idstr, ',')) {
+            try {
+                id = std::stoi(idstr);
+            } catch (const std::invalid_argument&) {
+                std::cerr << "Ungültiges Format für ID: '" << idstr << "'\n";
+                continue;
+            } catch (const std::out_of_range&) {
+                std::cerr << "ID außer Reichweite: '" << idstr << "'\n";
+                continue;
+            }
         }
 
-        auto newKonto =  std::make_shared<Konto>(name, betrag);
+        // Name einlesen
+        if (!std::getline(ss, name, ',')) {
+            std::cerr << "Fehler beim Einlesen des Namens\n";
+            continue;
+        }
+
+        // Betrag einlesen und konvertieren
+        if (std::getline(ss, betragStr, ',')) {
+            try {
+                betrag = std::stod(betragStr);
+            } catch (const std::invalid_argument&) {
+                std::cerr << "Ungültiges Format für Betrag: '" << betragStr << "'\n";
+                continue;
+            } catch (const std::out_of_range&) {
+                std::cerr << "Betrag außer Reichweite: '" << betragStr << "'\n";
+                continue;
+            }
+        } else {
+            std::cerr << "Fehler beim Einlesen des Betrags\n";
+            continue;
+        }
+
+        // Neues Konto-Objekt erstellen und in den Vektor einfügen
+        auto newKonto = std::make_shared<Konto>(id, name, betrag);
         newkontos.push_back(newKonto);
     }
 
     file.close();
     std::cout << "read from file" << std::endl;
     return newkontos;
-
 }
+
+
 
 // Funktion zum Auflisten aller Konten
 void listAccounts(const std::vector<std::shared_ptr<Konto>>& kontos) {
     std::cout << "Verfügbare Konten:" << std::endl;
     for (size_t i = 0; i < kontos.size(); ++i) {
-        std::cout << i + 1 << ": " << kontos[i]->get_name() << std::endl;
+        std::cout << kontos[i]->getID() << ": " << kontos[i]->get_name() << "Guthaben: "<< kontos[i]->get_betrag()<< std::endl;
     }
 }
 
@@ -153,9 +174,11 @@ double addMoney(std::vector<std::shared_ptr<Konto>>& kontos) {
     std::cout << "Betrag erfolgreich eingezahlt! Neuer Kontostand: " << newBetrag << std::endl;
 
     // Hier Transaktion in die Logdatei schreiben
-    std::ofstream logFile("transactionLog.txt", std::ios::app);
+  /*  std::ofstream logFile("transactionLog.txt", std::ios::app);
     logFile << "Einzahlung: " << amount << " auf Konto von " << currentKonto->get_name() << "\n";
     logFile.close();
+    */
+    currentKonto->addTransaction(newBetrag,TransactionType::Deposit);
 
     return newBetrag;
 }
@@ -228,7 +251,7 @@ int main() {
     try
     {
         std::vector<std::shared_ptr<Konto>> kontos;
-        kontos = readFromFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt");
+        kontos = readFromFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab04/bankingSystem_v3/savedAccounts.txt");
         int choice;
 
         do {
@@ -282,7 +305,7 @@ int main() {
             //std::cout << std::endl;
         } while (choice != 6);
 
-        saveInFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_03/UE/banking_system_v2/savedAccounts.txt");
+        saveInFile(kontos,"/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab04/bankingSystem_v3/savedAccounts.txt");
     }
     catch(const std::exception& e)
     {
