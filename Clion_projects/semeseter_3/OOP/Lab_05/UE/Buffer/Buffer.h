@@ -17,12 +17,12 @@ private:
 public:
     Buffer(unsigned int id, unsigned char* data, size_t size){
         this->id = id;
-        this->data = new unsigned char[size]; // Speicher allokieren
-        std::memcpy(this->data, data, size);  // Daten kopieren
+        this->data = new unsigned char[size];
+        std::memcpy(this->data, data, size);
         this->size = size;
     }
 
-    Buffer(unsigned int id, size_t size){this->id=id; this->size=size;};
+    Buffer(unsigned int id, size_t size){this->id=id; this->data = new unsigned char[size]; this->size=size;};
 
     ~Buffer(){delete[] data;};
 
@@ -33,6 +33,8 @@ public:
     void setData(size_t, unsigned char);
     void fill(unsigned char);
     void fillPattern(const unsigned char*, size_t);
+    void copyData(const unsigned char*, size_t);
+    void print()const;
 };
 
 

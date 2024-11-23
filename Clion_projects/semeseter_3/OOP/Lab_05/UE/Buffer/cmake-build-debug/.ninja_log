@@ -1,0 +1,17 @@
+# ninja log v6
+2	132	1732353031035026416	CMakeFiles/Buffer.dir/Buffer.cpp.o.ddi	1923325a506ce888
+1	132	1732353031035026416	CMakeFiles/Buffer.dir/main.cpp.o.ddi	b42c99f9f3cc6604
+132	143	1732353031175027833	CMakeFiles/Buffer.dir/CXX.dd	2226c0fc51ddcf8
+132	143	1732353031175027833	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/cmake-build-debug/CMakeFiles/Buffer.dir/CXXModules.json	2226c0fc51ddcf8
+132	143	1732353031175027833	CMakeFiles/Buffer.dir/main.cpp.o.modmap	2226c0fc51ddcf8
+132	143	1732353031175027833	CMakeFiles/Buffer.dir/Buffer.cpp.o.modmap	2226c0fc51ddcf8
+143	695	1732353031175027833	CMakeFiles/Buffer.dir/main.cpp.o	e66c6f44dbf03cb9
+143	696	1732353031175027833	CMakeFiles/Buffer.dir/Buffer.cpp.o	5164dfb551e35ede
+696	803	1732353031728366766	Buffer	ab8b2b5a29beff9d
+4	153	1732353048268534155	CMakeFiles/Buffer.dir/main.cpp.o.ddi	b42c99f9f3cc6604
+153	164	1732353048415202306	CMakeFiles/Buffer.dir/CXX.dd	2226c0fc51ddcf8
+153	164	1732353048415202306	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/cmake-build-debug/CMakeFiles/Buffer.dir/CXXModules.json	2226c0fc51ddcf8
+153	164	1732353048415202306	CMakeFiles/Buffer.dir/main.cpp.o.modmap	2226c0fc51ddcf8
+153	164	1732353048415202306	CMakeFiles/Buffer.dir/Buffer.cpp.o.modmap	2226c0fc51ddcf8
+164	627	1732353048428535774	CMakeFiles/Buffer.dir/main.cpp.o	e66c6f44dbf03cb9
+627	721	1732353048891873796	Buffer	ab8b2b5a29beff9d
