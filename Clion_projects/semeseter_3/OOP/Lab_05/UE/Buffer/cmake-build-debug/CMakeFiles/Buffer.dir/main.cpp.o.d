@@ -1,4 +1,4 @@
-CMakeFiles/Buffer.dir/main.cpp.o.ddi: \
+CMakeFiles/Buffer.dir/main.cpp.o: \
  /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/14.2.1/iostream \
  /usr/include/c++/14.2.1/bits/requires_hosted.h \

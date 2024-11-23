@@ -10,8 +10,9 @@ void useBuffer(Buffer& v) {
 }
 
 Buffer createBuffer() {
-    Buffer buff(2,12);
+    Buffer buff(2,5);
 
+    buff.fill('A');
 
     return buff;
 }
@@ -19,5 +20,14 @@ Buffer createBuffer() {
 int main() {
     Buffer buffer(1, 12);
     useBuffer(buffer);
+
+    Buffer buff = createBuffer();
+    Buffer buff2 = buff;
+
+    buff.print();
+    buff2.print();
+    buff2.setData(0,'B'); // ersten buchstaben von A auf B setzen
+    buff2.print();
+
     return 0;
 }

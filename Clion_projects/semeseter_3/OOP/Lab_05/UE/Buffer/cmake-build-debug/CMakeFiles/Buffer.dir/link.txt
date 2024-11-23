@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Buffer.dir/main.cpp.o CMakeFiles/Buffer.dir/Buffer.cpp.o -o Buffer

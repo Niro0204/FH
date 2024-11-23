@@ -1,4 +1,4 @@
-CMakeFiles/Buffer.dir/Buffer.cpp.o.ddi: \
+CMakeFiles/Buffer.dir/Buffer.cpp.o: \
  /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/Buffer.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/14.2.1/cstring \
  /usr/include/c++/14.2.1/bits/version.h \
