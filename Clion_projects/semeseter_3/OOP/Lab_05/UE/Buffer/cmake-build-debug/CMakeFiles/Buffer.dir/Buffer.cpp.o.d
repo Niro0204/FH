@@ -13,9 +13,7 @@ CMakeFiles/Buffer.dir/Buffer.cpp.o: \
  /usr/include/bits/libc-header-start.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /usr/include/strings.h \
- /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/Buffer.h \
- /usr/include/c++/14.2.1/iostream \
+ /usr/include/strings.h /usr/include/c++/14.2.1/iostream \
  /usr/include/c++/14.2.1/bits/requires_hosted.h \
  /usr/include/c++/14.2.1/ostream /usr/include/c++/14.2.1/ios \
  /usr/include/c++/14.2.1/iosfwd /usr/include/c++/14.2.1/bits/stringfwd.h \
@@ -146,4 +144,5 @@ CMakeFiles/Buffer.dir/Buffer.cpp.o: \
  /usr/include/c++/14.2.1/bits/locale_facets.tcc \
  /usr/include/c++/14.2.1/bits/basic_ios.tcc \
  /usr/include/c++/14.2.1/bits/ostream.tcc /usr/include/c++/14.2.1/istream \
- /usr/include/c++/14.2.1/bits/istream.tcc
+ /usr/include/c++/14.2.1/bits/istream.tcc \
+ /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/Buffer.h
