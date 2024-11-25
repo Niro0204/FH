@@ -148,6 +148,4 @@ CMakeFiles/Buffer.dir/main.cpp.o: \
  /usr/include/c++/14.2.1/bits/stl_vector.h \
  /usr/include/c++/14.2.1/bits/stl_bvector.h \
  /usr/include/c++/14.2.1/bits/vector.tcc \
- /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/Buffer.h \
- /usr/include/c++/14.2.1/cstring /usr/include/string.h \
- /usr/include/strings.h
+ /home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_05/UE/Buffer/Buffer.h
