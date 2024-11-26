@@ -1,0 +1,5 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/bankingSystem_v3.dir/main.cpp.o: dyndep
+
+build CMakeFiles/bankingSystem_v3.dir/banking.cpp.o: dyndep
+
