@@ -9,18 +9,25 @@
 <body>
 
 <div id="top">
-  <h1>Pixel</h1>
-  <div id="burger-menu" onclick="toggleMenu()">&#9776;</div>
+  <di><h1>Pixel</h1></di>
+
   <nav id="navi">
-    <ul>
+    <div class="burger">&#9776;</div>
+    <ul class="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-</div>
 
+  <script>
+    document.querySelector('.burger').addEventListener('click', function() {
+      document.querySelector('.menu').classList.toggle('show');
+    });
+  </script>
+
+</div> -
 
 <section id="about">
   <h2>Pixelzähler</h2>
@@ -28,9 +35,9 @@
   <p>„Zählen Sie die Pixel, und die Welt wird Ihnen gehören.“</p>
 
   <p>Willkommen in meiner Welt, in der Pixel mehr sind als nur kleine Bildpunkte
-    <br>– sie sind bedeutungsvolle Einheiten! Als einer der besten Pixelzähler der Branche (und ja, ich zähle wirklich alle),
-    <br>widme ich mich der Kunst des Zählens und Analysierens von Pixeln in Webseiten, Apps und digitalen Designs.
-    <br>Für mich ist kein Pixel zu klein, um nicht gezählt zu werden.</p>
+    – sie sind bedeutungsvolle Einheiten! Als einer der besten Pixelzähler der Branche (und ja, ich zähle wirklich alle),
+    widme ich mich der Kunst des Zählens und Analysierens von Pixeln in Webseiten, Apps und digitalen Designs.
+    Für mich ist kein Pixel zu klein, <br> um nicht gezählt zu werden.</p>
 
 
 
