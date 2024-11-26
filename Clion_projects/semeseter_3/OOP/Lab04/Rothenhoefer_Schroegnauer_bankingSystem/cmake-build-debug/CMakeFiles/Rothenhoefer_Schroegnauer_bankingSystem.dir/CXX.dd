@@ -1,0 +1,5 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/Rothenhoefer_Schroegnauer_bankingSystem.dir/main.cpp.o: dyndep
+
+build CMakeFiles/Rothenhoefer_Schroegnauer_bankingSystem.dir/banking.cpp.o: dyndep
+
