@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="author" content="Rothenhöfer Nicolai">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <div id="top">
-  <di><h1>Pixel</h1></di>
+  <h1>Pixel</h1>
 
   <nav id="navi">
     <div class="burger">&#9776;</div>
@@ -27,7 +28,7 @@
     });
   </script>
 
-</div> -
+</div>
 
 <section id="about">
   <h2>Pixelzähler</h2>
@@ -44,29 +45,29 @@
 </section>
 
 <section id="skills">
-  <h2>My Skills</h2>
+  <h2>Statistiken</h2>
   <div class="progress-bar">
-    <label>HTML5</label>
+    <label>Pixelzählen genauigkeit</label>
     <div class="progress">
-      <div class="progress-value" style="width: 80%;"></div>
+      <div class="progress-value" style="width: 95%;"></div>
     </div>
   </div>
   <div class="progress-bar">
-    <label>CSS3</label>
+    <label>Gezählte Websiten</label>
     <div class="progress">
       <div class="progress-value" style="width: 70%;"></div>
     </div>
   </div>
   <div class="progress-bar">
-    <label>JavaScript</label>
+    <label>Freizeit</label>
     <div class="progress">
-      <div class="progress-value" style="width: 60%;"></div>
+      <div class="progress-value" style="width: 15%;"></div>
     </div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>Projects</h2>
+  <h2>Projekte</h2>
   <div id="project-container">
     <div class="project-card">
       <h2>App 1: Die 'Hast du deinen Schatten heute gesehen?' App</h2>
@@ -89,17 +90,17 @@
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
+  <h2>Pixelzähler Chat</h2>
   <div id="chat-messages"></div>
     <form id="chat-form">
       <div id="user-container">
         <label for="name">Username:</label>
-        <input type="text" name="name" id="name" required>
+        <input type="text" name="name" id="name" required placeholder="Name">
       </div>
 
       <div id="message-container">
-        <label for="message" id="message-label">Message:</label>
-        <input type="text" name="message" id="message" required placeholder="Nachricht">
+        <label for="message-input" id="message-label">Message:</label>
+        <input type="text" name="message" id="message-input" required placeholder="Nachricht">
         <input type="submit" value="Senden">
       </div>
 

@@ -1,0 +1,305 @@
+body {
+    font-family: "DejaVu Sans Mono", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #121212; /* Dunkler Hintergrund */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #A8E6A3; /* Helles Grün */
+    font-family: "DejaVu Sans Mono", serif;
+    font-weight: normal;
+}
+
+p {
+    line-height: 1.6;
+    margin: 0 15px;
+    color: #E0E0E0; /* Helles Grau für Text */
+}
+
+#top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+#navi{
+    padding: 0px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #A8E6A3; /* Grüner Text */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #66FF66; /* Helles Grün für Hover */
+}
+
+section {
+    padding: 20px 0;
+    margin: 10px;
+}
+
+.burger{
+    display: none;
+}
+
+#about {
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 10px;
+    background-color: rgba(57, 73, 61, 0.9); /* Dunkelgrüner Hintergrund */
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+#skills {
+    background-color: #2C2C2C; /* Dunkelgrau */
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    margin: 30px;
+}
+
+.progress-bar {
+    margin: 10px auto;
+    width: 80%;
+}
+
+.progress {
+    background-color: #444; /* Dunkler Hintergrund für den Fortschritt */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-value {
+    background-color: #28a745; /* Grüner Fortschritt */
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+#projects {
+    /*background-color: #ccc;*/
+}
+
+#project-container {
+    display: flex;
+}
+
+.project-card {
+    background-color: #2C2C2C; /* Dunkelgrau für Karten */
+    margin: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+    border: 1px solid #444; /* Dunkelgraue Ränder */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #A8E6A3; /* Grüner Text für den Titel */
+}
+
+#contact {
+    margin-right: 30px;
+    border: 1px solid #444; /* Dunkelgrau */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#chat-messages {
+    border: 1px solid #6C6C6C;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #A8E6A3; /* Grüner Text für Labels */
+}
+
+form input[type="text"], form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    background-color: #333; /* Dunkelgrau für Eingabefelder */
+    color: #E0E0E0; /* Helles Grau für Text in Eingabefeldern */
+    border: 1px solid #444; /* Dunkelgraue Ränder */
+}
+
+form input[name="message"]{
+    margin-left: 9px;
+    width: 710px;
+}
+
+form input[type="submit"] {
+    background-color: #28a745; /* Grüner Hintergrund */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2d9e46; /* Etwas dunkleres Grün für Hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #121212; /* Dunkler Footer-Hintergrund */
+    color: #A8E6A3; /* Grüner Text im Footer */
+}
+
+/* Media Query für Bildschirme mit max. 800px Breite */
+@media (max-width: 800px) {
+    nav ul li {
+        margin: 5px 0;
+    }
+    .menu {
+        display: block;
+        justify-content: space-between;
+    }
+
+    #navi{
+        display: block;
+    }
+    .menu{
+        display: block;
+    }
+    #skills {
+        margin: 30px;
+        margin-bottom: 10px;
+    }
+
+
+    .progress-bar, form {
+        width: 90%;
+    }
+
+    #project-container {
+        display: block;
+        padding: 0px;
+    }
+
+    #contact {
+        margin: 30px;
+    }
+}
+
+/* Media Query für Bildschirme mit max. 400px Breite */
+@media (max-width: 400px) {
+
+    h1{
+        font-size: 30px;
+        margin: 0px;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    #navi {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        margin-top: 10px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    #top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        width: 100%;
+        height: auto;
+        overflow:  visible;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .menu.show {
+        display: block;
+    }
+
+    .burger:active + .menu,
+    .menu:hover,
+    .menu:focus-within {
+        display: block;
+    }
+
+
+    .burger {
+        display: block;
+        line-height: 1;
+        margin: 0;
+        font-size: 24px;
+
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    form input[type="text"], form input[type="submit"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 50%;
+    }
+
+    form input[name="message"]{
+        margin-left: 9px;
+        width: 50%;
+    }
+
+    form input[type="submit"] {
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 30%;
+    }
+
+}
