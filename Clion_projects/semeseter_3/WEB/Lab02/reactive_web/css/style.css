@@ -3,12 +3,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #ffffff;
+  background-color: #282727;
 }
 
 h1, h2 {
   text-align: center;
-  color: #000000;
+  color: #A8E6A3;
   font-family: "DejaVu Sans Mono", serif;
   font-weight: normal;
 }
@@ -16,18 +16,19 @@ h1, h2 {
 p {
   line-height: 1.6;
   margin: 0 15px;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.98);
 }
 
 #top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 100px;
+  padding: 10px 30px;
 }
 
-nav {
-  padding: 10px 0;
+
+#navi{
+  padding: 0px;
 }
 
 nav ul {
@@ -44,7 +45,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #000000;
+  color: #A8E6A3;
   text-decoration: none;
   font-weight: bold;
 }
@@ -66,13 +67,13 @@ section {
   margin-left: 30px;
   margin-right: 30px;
   padding-top: 10px;
-  background-color: rgba(142, 212, 255, 0.8);
+  background-color: rgba(57, 73, 61, 0.9);
   border-radius: 3px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 #skills {
-  background-color: rgb(255, 255, 255);
+  background-color: #2C2C2C;
   border-radius: 3px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
   margin: 30px;
@@ -84,7 +85,7 @@ section {
 }
 
 .progress {
-  background-color: #ddd;
+  background-color: #444;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -95,36 +96,32 @@ section {
   border-radius: 5px 0 0 5px;
 }
 
-#projects {
-  /*background-color: #ccc;*/
-}
-
 #project-container {
   display: flex;
 }
 
 .project-card {
-  background-color: #fff;
+  background-color: #2C2C2C;
   margin: 20px;
   padding: 20px;
   padding-top: 30px;
   padding-bottom: 70px;
-  border: 1px solid #ddd;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  /*border: 1px solid #444;*/
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .project-card h3 {
   margin-top: 0;
+  color: #A8E6A3;
 }
 
 #contact {
   margin-right: 30px;
-  border: 1px solid #ddd;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 #chat-messages {
-  border: 1px solid #adacb0;
+  border: 1px solid #6C6C6C;
   margin-left: 20px;
   margin-right: 20px;
   max-height: 300px;
@@ -132,6 +129,11 @@ section {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+
+.progress-bar > label {
+  color: white;
+}
+
 
 form {
   display: flex;
@@ -142,22 +144,33 @@ form {
 
 form label {
   margin-bottom: 5px;
+  color: #A8E6A3;
 }
 
 form input[type="text"], form input[type="submit"] {
   padding: 10px;
   margin-bottom: 10px;
+  width: 50%;
+  background-color: #333; /* Dunkelgrau für Eingabefelder */
+  color: #E0E0E0; /* Helles Grau für Text in Eingabefeldern */
+  border: 1px solid #444;
+}
+
+form input[name="message"]{
+  margin-left: 9px;
+  width: 80%;
 }
 
 form input[type="submit"] {
-  background-color: #333;
+  background-color: #28a745;
   color: white;
   border: none;
   cursor: pointer;
+  width: 10%;
 }
 
 form input[type="submit"]:hover {
-  background-color: #555;
+  background-color: #84d3a3;
 }
 
 footer {
@@ -165,6 +178,8 @@ footer {
   padding: 10px;
   background-color: #333;
   color: white;
+  background-color: #121212; /* Dunkler Footer-Hintergrund */
+  color: #A8E6A3; /* Grüner Text im Footer */
 }
 
 /* Media Query für Bildschirme mit max. 800px Breite */
@@ -205,7 +220,12 @@ footer {
 
 /* Media Query für Bildschirme mit max. 400px Breite */
 @media (max-width: 400px) {
-  h1, h2 {
+
+  h1{
+    font-size: 30px;
+    margin: 0px;
+  }
+ h2 {
     font-size: 1.2rem;
   }
 
@@ -215,14 +235,25 @@ footer {
   }
 
   #navi {
-    display: flex; /* Standardmäßig ausgeblendet */
+    display: flex;
     flex-direction: column;
     background-color: white;
     position: absolute;
-    top: 60px;
+    top: 0;
+    margin-top: 10px;
     right: 20px;
     padding: 10px;
     border-radius: 5px;
+  }
+
+  #top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    height: auto;
+    overflow:  visible;
   }
 
   .menu{
@@ -241,7 +272,11 @@ footer {
 
 
   .burger {
-    display: flex;
+    display: block;
+    line-height: 1;
+    margin: 0;
+    font-size: 24px;
+
   }
 
   .menu {
@@ -250,5 +285,26 @@ footer {
     align-items: flex-start;
   }
 
+  form input[type="text"], form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+  }
+
+  form input[name="message"]{
+    margin-left: 9px;
+    width: 50%;
+  }
+
+  form input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+  }
+  form input[type="submit"]:hover {
+    background-color: #84d3a3; /* Etwas dunkleres Grün für Hover */
+  }
 
 }
