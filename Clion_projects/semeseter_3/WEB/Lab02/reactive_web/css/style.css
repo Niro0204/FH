@@ -124,6 +124,7 @@ section {
   border: 1px solid #6C6C6C;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 10px;
   max-height: 300px;
   overflow-y: auto;
   word-wrap: break-word;
@@ -151,9 +152,9 @@ form input[type="text"], form input[type="submit"] {
   padding: 10px;
   margin-bottom: 10px;
   width: 50%;
-  background-color: #333; /
-  color: #E0E0E0;
-  border: 1px solid #444;
+  background-color: #333;
+  border: 1px solid #4e4e4e;
+
 }
 
 form input[name="message"]{
@@ -235,7 +236,7 @@ footer {
   #navi {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #2C2C2C;
     position: absolute;
     top: 0;
     margin-top: 10px;
@@ -256,6 +257,7 @@ footer {
 
   .menu{
     display: none;
+    background-color: #2C2C2C;
   }
 
   .menu.show {
@@ -274,6 +276,7 @@ footer {
     line-height: 1;
     margin: 0;
     font-size: 24px;
+    color: #84d3a3;
 
   }
 
@@ -281,6 +284,7 @@ footer {
     display: none;
     flex-direction: column;
     align-items: flex-start;
+    background-color: #2C2C2C;
   }
 
   form input[type="text"], form input[type="submit"] {

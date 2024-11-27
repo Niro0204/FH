@@ -13,8 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e07c961d-a8e8-4c45-9742-58e60642a6bf" name="Changes" comment="update merge">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +94,10 @@
       <workItem from="1732562008205" duration="4041000" />
       <workItem from="1732566993731" duration="25000" />
       <workItem from="1732629158493" duration="182000" />
+      <workItem from="1732657188314" duration="14000" />
+      <workItem from="1732693498172" duration="1093000" />
+      <workItem from="1732694693691" duration="999000" />
+      <workItem from="1732702147067" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="update merge">
       <option name="closed" value="true" />
