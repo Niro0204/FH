@@ -1,0 +1,3 @@
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_07/UE/academic_persons/cmake-build-debug/CMakeFiles/academic_persons.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_07/UE/academic_persons/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_07/UE/academic_persons/cmake-build-debug/CMakeFiles/rebuild_cache.dir
