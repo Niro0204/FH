@@ -5,7 +5,9 @@ const c = canvas.getContext("2d")
 
 const keyPress = {
     "a":false,
-    "d":false
+    "d":false,
+    "w":false,
+    "s":false
 }
 
 class Player {
@@ -53,21 +55,63 @@ animate()
 
 
 addEventListener("keydown",({key}) => {
+
+    switch(key){
+        case "a":
+            keyPress.a = true
+           // player.velocity.x = -2
+            break
+        case "d":
+           // player.velocity.x = 2
+            keyPress.d = true
+            break
+        case "w":
+            keyPress.w = true
+            break
+        case "s":
+            keyPress.s = true
+            break
+
+    }
     console.log(key)
-    if(key === "a"){
-        player.velocity.x = -2
-    }
-    else if(key === "d"){
-        player.velocity.x = 2
-    }
+
+    move()
 })
 
 addEventListener("keyup",({key}) => {
     console.log(key)
-    if(key === "a"){
-        player.velocity.x = 0
+    switch(key){
+        case "a":
+            keyPress.a = false
+            // player.velocity.x = -2
+            break
+        case "d":
+            // player.velocity.x = 2
+            keyPress.d = false
+            break
+        case "w":
+            keyPress.w = false
+            break
+        case "s":
+            keyPress.s = false
+            break
+
     }
-    else if(key === "d"){
-        player.velocity.x = 0
-    }
+    move()
 })
+
+function move(){
+    if(keyPress.a){
+        player.velocity.x = -2
+    }
+    else if(keyPress.d){
+        player.velocity.x = 2
+    }
+    else if(keyPress.w){
+        player.velocity.y = 2
+    }
+    else if(keyPress.s){
+        player.velocity.y = -2
+    }
+
+}
