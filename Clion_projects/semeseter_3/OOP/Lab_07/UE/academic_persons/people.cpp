@@ -24,16 +24,24 @@ Person::Person(const std::string& firstName, const std::string& lastName, const 
 Student::Student(const std::string& fN, const std::string& lN, const char g, const std::string& bD,const int sN, const std::string& sB, const  std::string& sc)
 : Person(fN,lN,g,bD){
     this->studentNumber = sN;
-    this->studyBegin = sB;
+    this->studyBeginDate = sB;
     this->school = sc;
 };
 
 Student::Student(const std::string& fN, const std::string& lN, const char g, const std::string& bD,const int SVNr,const int sN, const std::string& sB, const std::string& sc)
 : Person(fN,lN,g,bD,SVNr){
     this->studentNumber = sN;
-    this->studyBegin = sB;
+    this->studyBeginDate = sB;
     this->school = sc;
 }
+
+Alumnus Student::promoteToAlumnus(const Student& oldStudent, const std::string& gradDate) {
+    return Alumnus(oldStudent, gradDate);
+}
+
+Alumnus::Alumnus(const Student& student, const std::string& studyEndDate) : Student(student) {
+    this->studyEndDate = studyEndDate;
+};
 
 void Person::whoAmI(){
     std::cout << "-----Person-----" << std::endl;

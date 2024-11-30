@@ -33,11 +33,13 @@ public:
 
 };
 
+class Alumnus;
+
 class Student : public Person
 {
 private:
     int studentNumber;
-    std::string studyBegin;
+    std::string studyBeginDate;
     std::string school;
 public:
 
@@ -46,6 +48,24 @@ public:
 
     ~Student(){std::cout << "Student deleted" << std::endl;};
 
+    int getStudentNumber()const {return this->studentNumber;};
+    std::string getStudyBegin()const {return this->studyBeginDate;};
+    std::string getSchool()const {return this->school;};
+
     void whoAmI()override;
+    static Alumnus promoteToAlumnus(const Student& oldStudent,const std::string& studyEndDate);
+};
+
+class Alumnus : public Student {
+private:
+    std::string studyEndDate;
+
+public:
+
+    Alumnus(const Student& student, const std::string& studyEndDate);
+    ~Alumnus(){std::cout << "Alumnus deleted" << std::endl;};
 };
 #endif //PEOPLE_H
+
+
+
