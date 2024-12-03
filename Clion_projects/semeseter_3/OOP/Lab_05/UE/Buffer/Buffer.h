@@ -51,7 +51,7 @@ class ID{
 private:
     static unsigned int id;
 
-public:
+public:#
 
    static unsigned int getNextId(){return id++;};
 
