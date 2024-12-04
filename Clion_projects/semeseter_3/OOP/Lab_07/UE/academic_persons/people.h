@@ -64,6 +64,9 @@ public:
 
     Alumnus(const Student& student, const std::string& studyEndDate);
     ~Alumnus(){std::cout << "Alumnus deleted" << std::endl;};
+
+    std::string getStudyEnd()const {return this->studyEndDate;};
+    void whoAmI()override;
 };
 #endif //PEOPLE_H
 
