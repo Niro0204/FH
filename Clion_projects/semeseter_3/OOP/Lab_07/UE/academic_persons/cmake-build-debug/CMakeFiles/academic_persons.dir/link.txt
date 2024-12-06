@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/academic_persons.dir/main.cpp.o CMakeFiles/academic_persons.dir/people.cpp.o -o academic_persons

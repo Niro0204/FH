@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "CMakeFiles/academic_persons.dir/people.cpp.o",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}

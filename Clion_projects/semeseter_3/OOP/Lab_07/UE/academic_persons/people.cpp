@@ -46,7 +46,7 @@ Alumnus::Alumnus(const Student& student, const std::string& studyEndDate) : Stud
 void Person::whoAmI(){
     std::cout << "-----Person-----" << std::endl;
     std::cout << "My name is " << getFirstName() << " " << getLastName() << std::endl;
-    std::cout << getGender() << "born on" << getBirthDate() << std::endl;
+    std::cout << getGender() << " born on: " << getBirthDate() << std::endl;
     if(getSVNr() != 0)
     {
         std::cout << "Social Security Number: " << getSVNr() << std::endl;
@@ -58,10 +58,10 @@ void Person::whoAmI(){
     std::cout << "----------------" << std::endl;
 };
 
-void Student::whoAmI()override{
+void Student::whoAmI(){
     std::cout << "-----Student-----" << std::endl;
     std::cout << "My name is " << getFirstName() << " " << getLastName() << std::endl;
-    std::cout << getGender() << "born on" << getBirthDate() << std::endl;
+    std::cout << getGender() << " born on: " << getBirthDate() << std::endl;
     if(getSVNr() != 0)
     {
         std::cout << "Social Security Number: " << getSVNr() << std::endl;
@@ -72,3 +72,22 @@ void Student::whoAmI()override{
     }
     std::cout << "-----------------" << std::endl;
 };
+
+void Alumnus::whoAmI()
+{
+    std::cout << "-----Alumnus-----" << std::endl;
+    std::cout << "My name is " << getFirstName() << " " << getLastName() << std::endl;
+    std::cout << getGender() << " born on: " << getBirthDate() << std::endl;
+    if(getSVNr() != 0)
+    {
+        std::cout << "Social Security Number: " << getSVNr() << std::endl;
+    }
+    else
+    {
+        std::cout << "No social security number" << std::endl;
+    }
+    std::cout << "i graduated on: " << getStudyEnd() << std::endl;
+    std::cout << "-----------------" << std::endl;
+
+}
+
