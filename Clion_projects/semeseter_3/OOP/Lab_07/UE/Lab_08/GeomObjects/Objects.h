@@ -16,6 +16,17 @@ public:
     virtual ~IGeomObj()=0 {};
 };
 
+//TODO normal class ro interface
+class UniqueID{
+private:
+    static unsigned int id;
+
+public:#
+
+    static unsigned int getNextId(){return id++;};
+
+};
+
 class GeoRect : public IGeomObj {
 private:
     double a, b;

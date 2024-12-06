@@ -53,3 +53,11 @@ void GeoEllipse::output() const {
     std::cout << "Fläche: " << area(maR,miR) << std::endl;
     std::cout << std::endl;
 }
+
+double GeoCircle::area(double r) const {
+    return pow(r, 2)*M_PI;
+}
+
+double GeoCircle::circumference(double r) const {
+    return 2*M_PI*r;
+}
