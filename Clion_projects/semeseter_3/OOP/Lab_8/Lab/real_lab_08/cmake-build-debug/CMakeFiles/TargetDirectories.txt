@@ -1,0 +1,3 @@
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/Lab/real_lab_08/cmake-build-debug/CMakeFiles/real_lab_08.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/Lab/real_lab_08/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/Lab/real_lab_08/cmake-build-debug/CMakeFiles/rebuild_cache.dir
