@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/GeomObjects.dir/main.cpp.o CMakeFiles/GeomObjects.dir/Objects.cpp.o -o GeomObjects
