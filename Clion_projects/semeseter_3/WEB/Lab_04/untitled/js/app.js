@@ -12,6 +12,15 @@ const keyPress = {
 
 const GRAVITY = 0.5; // Gravitationskonstante
 
+const platforms = [
+    { x: 0, y: 400, width: 700, height: 20 },
+    { x: 300, y: 700, width: 400, height: 20 },
+    { x: 800, y: 550, width: 350, height: 20 },
+    { x: 1250, y: 400, width: 700, height: 20 },
+    { x: 800, y: 250, width: 350, height: 20 },
+    {x: 1100, y: 700, width: 600, height: 20}
+]
+
 class Sprite{
 
     constructor({position, imageSrc}){
@@ -52,12 +61,15 @@ class Ground {
 
 }
 
-class Player {
-    constructor(position) {
+class Player extends Sprite {
+    constructor(position,imageSrc) {
+        super({position, imageSrc})
         this.width = 25
         this.height = 50
         this.color = "red"
-        this.isJumping = false;
+        this.isJumping = false
+        this.onPlatform = false
+        this.canFall = true
 
 
         this.position = position
@@ -68,12 +80,12 @@ class Player {
 
     }
 
-    draw(){
+    /*draw(){
         c.beginPath()
         c.rect(this.position.x,this.position.y, this.width,this.height)
         c.fillStyle = this.color
         c.fill()
-    }
+    }*/
 
     update() {
         //this.velocity.y += GRAVITY;
@@ -88,19 +100,27 @@ class Player {
             this.isJumping = false
         }
 
+        platforms.forEach(platform => {
+            platformCollision(this, platform);
+        });
+
         this.draw();
     }
 
     jump(){
         if(!this.isJumping){
-            this.velocity.y = -14
+            this.velocity.y = -15
             this.isJumping = true
         }
     }
 
 }
 
-const player = new Player({x: 25,y:100})
+const player = new Player({
+    position: {x: 25,y:100 },
+    imageSrc: "img/characters/Samurai_Archer/Idle.png"
+})
+
 const background = new Sprite({
     position: {
         x:0,
@@ -122,6 +142,12 @@ const floor = new Sprite({
     },
     imageSrc: "img/Tiles/1 Tiles/Tile_01.png"
 })
+const cliff = new Sprite({
+    position: {
+        x: 100,
+        y: 50
+    }
+})
 
 
 const ground = new Ground;
@@ -142,8 +168,10 @@ function animate(){
 
 
     createFloor()
+    drawPlatforms()
 
     move();
+
     player.update()
     requestAnimationFrame(animate)
 }
@@ -187,6 +215,7 @@ addEventListener("keyup",({key}) => {
             break
         case "s":
             keyPress.s = false
+            player.canFall = true
             break
 
     }
@@ -206,9 +235,11 @@ function move(){
     if(keyPress.w){
         player.jump()
     }
-    /*if(keyPress.s){
-        player.velocity.y = 2
-    }*/
+    if(keyPress.s === true && player.onPlatform === true && player.isJumping === false && player.canFall === true ){
+      player.position.y += 20
+      player.canFall = false;
+    }
+
 
 }
 
@@ -216,8 +247,51 @@ function createFloor(){
     for (let x = 0; x < canvas.width; x += 32) {
         floor.position.x = x
         c.save()
-
         floor.update()
         c.restore()
     }
 }
+
+function drawPlatforms() {
+    platforms.forEach(platform => {
+        c.fillStyle = "brown"; // Beispiel: Farbe der Plattform
+        c.fillRect(platform.x, platform.y, platform.width, platform.height);
+    });
+}
+
+function platformCollision(player, platform) {
+    const pBottom = player.position.y + player.height;
+    const pTop = player.position.y;
+    const platformTop = platform.y;
+    const platformBottom = platform.y + platform.height;
+    const pRight = player.position.x + player.width;
+    const pLeft = player.position.x;
+
+    const platformLeft = platform.x;
+    const platformRight = platform.x + platform.width;
+
+    /*if(keyPress.s === true){
+        return
+    }*/
+
+    if (
+        pBottom <= platformTop && // Spieler berührt die Plattform
+        pBottom + player.velocity.y >= platformTop && // Spieler bewegt sich Richtung Plattform
+        player.position.x + player.width > platform.x && // Spieler ist horizontal über der Plattform
+        player.position.x < platform.x + platform.width // Spieler ist horizontal innerhalb der Plattform
+    ) {
+        // Spieler auf der Plattform absetzen
+        player.position.y = platformTop - player.height;
+        player.velocity.y = 0; // Bewegung nach unten stoppen
+        player.isJumping = false;
+        player.onPlatform = true;
+        //break;
+    }
+
+// Falls keine Plattform unter den Füßen ist, fällt der Spieler
+if (!player.onPlatform) {
+    player.isJumping = true;
+}
+}
+
+

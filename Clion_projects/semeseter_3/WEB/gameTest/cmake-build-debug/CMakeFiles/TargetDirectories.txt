@@ -1,0 +1,3 @@
+/home/nico/Dev/FH/Clion_projects/semeseter_3/WEB/gameTest/cmake-build-debug/CMakeFiles/gameTest.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/WEB/gameTest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nico/Dev/FH/Clion_projects/semeseter_3/WEB/gameTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
