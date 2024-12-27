@@ -10,7 +10,7 @@ class Player{
         this.dx = 0
 
         this.projectiles = []
-        this.projectileSpeed = 1
+        this.projectileSpeed = 4
 
         this.health = 3
 
