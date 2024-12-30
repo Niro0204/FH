@@ -102,7 +102,7 @@ class Player {
       if(this.image){
           this.draw()
           this.position.x += this.velocity.x
-          console.log(this.velocity.x)
+          //console.log(this.velocity.x)
       }
   }
 

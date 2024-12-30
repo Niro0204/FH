@@ -24,6 +24,8 @@ class Invader {
 
     }
 
+
+
     draw() {
         const scale = 2.5 ; // Gleicher Skalierungsfaktor wie für das Bild
 
@@ -48,14 +50,15 @@ class Invader {
             this.height * scale
         );
 
+
     }
 
-    update(){
+    update({velocity}){
         if(this.image){
             this.draw()
-            this.position.x += this.velocity.x
-            this.position.y += this.velocity.y
-            console.log(this.velocity.x)
+            this.position.x += velocity.x
+            this.position.y += velocity.y
+            //console.log(this.velocity.x)
         }
     }
 
@@ -70,14 +73,23 @@ class Grid{
         }
 
         this.velocity = {
-            x: 0,
+            x: 3,
             y: 0
         }
 
         this.invaders = []
 
-       for(let i = 0; i < 5; i++){
-            for(let j = 0; j < 10; j++) {
+        const rows = Math.floor(Math.random()* 5) +1
+        const columns = Math.floor(Math.random() * 10) +1
+
+        this.width = this.width = (columns - 1) * 40 + 30;
+//columns * 35
+
+
+        console.log(rows)
+        console.log(columns)
+        for(let i = 0; i < rows; i++){
+            for(let j = 0; j < columns; j++) {
                 this.invaders.push(new Invader({
                     position: {
                         x: j * 40,
@@ -85,9 +97,19 @@ class Grid{
                     }
                 }))
             }
-            console.log(this.invaders)
-       }
+            //console.log(this.invaders)
+        }
     }
 
-    update(){}
+    update(){
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+
+        this.velocity.y = 0
+        if(this.position.x + this.width >= canvas.width || this.position.x <= 0){
+            this.velocity.x = -this.velocity.x
+            this.velocity.y = 30
+        }
+
+    }
 }

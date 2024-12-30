@@ -18,7 +18,7 @@ const projectiles = []
 
 
 const player = new Player()
-const grids = [new Grid()]
+const grids = []
 
 
 
@@ -64,6 +64,10 @@ addEventListener("keyup", ({key})=>{
     }
 })
 
+let frames = 0
+let randomInterval = Math.floor((Math.random() * 500) + 500)
+console.log(randomInterval)
+
 function animate(){
     c.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -87,10 +91,43 @@ function animate(){
 
     grids.forEach(grid => {
         grid.update()
-        grid.invaders.forEach(invader =>{
-            invader.update()
+        grid.invaders.forEach((invader, i) =>{
+            invader.update({velocity: grid.velocity})
+
+            projectiles.forEach((projectile, j) =>{
+                if (projectile.position.y - projectile.radius <=
+                    invader.position.y + invader.height &&
+                    projectile.position.x + projectile.radius >=
+                    invader.position.x && projectile.position.x -
+                    projectile.radius <= invader.position.x &&
+                    projectile.position.y + projectile.radius >=
+                    invader.position.y){
+
+                    setTimeout(() => {
+                        const invaderFound = grid.invaders.find(invader2 =>{
+                            return invader2 === invader
+                        })
+
+                        if(invaderFound ){
+                            grid.invaders.splice(i,1)
+                            projectiles.splice(j,1)
+                        }
+
+                    },0)
+                }
+            })
         })
     })
+
+    if(frames % randomInterval === 0){
+        grids.push(new Grid())
+        randomInterval = Math.floor((Math.random() * 500) + 500)
+        frames = 0
+        console.log(randomInterval)
+    }
+
+   // console.log(frames)
+    frames ++
 }
 
 animate()
