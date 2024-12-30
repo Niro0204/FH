@@ -62,7 +62,23 @@ class Invader {
         }
     }
 
+    shoot(invaderProjectiles){
+        invaderProjectiles.push(new InvaderProjectile({
+            position: {
+                x: this.position.x + this.width/2,
+                y: this.position.y + this.height
+            },
+            velocity: {
+                x: 0,
+                y: 4
+            }
+        }))
+    }
+
 }
+
+
+
 
 class Grid{
 
@@ -112,4 +128,5 @@ class Grid{
         }
 
     }
+
 }
