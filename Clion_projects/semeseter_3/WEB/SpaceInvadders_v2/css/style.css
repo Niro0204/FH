@@ -5,3 +5,34 @@ body {
 canvas {
   background-color: black;
 }
+
+#scoreBoard {
+  position: fixed;
+  z-index: 10;
+  font-family: "Hack Nerd Font Mono";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#health-bar {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  width: 200px; /* Gesamte Breite des Lebensbalkens */
+  height: 10px;
+  background-color: rgba(255, 0, 0, 0.3); /* Roter Hintergrund (leerer Bereich) */
+  border: 2px solid #fff; /* Weiße Umrandung */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tiefe */
+}
+
+#health-bar-inner {
+  height: 100%;
+  width: 100%; /* Startet bei voller Breite */
+  background: linear-gradient(90deg,red,orange,yellow, #76ff03, green); /* Farbverlauf von Grün zu Dunkelgrün */
+  border-radius: 6px; /* Gleiche Abrundung wie die äußere Hülle, aber innen */
+  transition: width 0.3s ease; /* Animation bei Lebensverlust */
+}

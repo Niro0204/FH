@@ -3,6 +3,10 @@ const canvas = document.querySelector("canvas")
 console.log(canvas)
 const c = canvas.getContext("2d")
 
+const scoreDis = document.querySelector("#scoreDis")
+//console.log(canvas)
+//const c = canvas.getContext("2d")
+
 canvas.width = innerWidth
 canvas.height = innerHeight
 
@@ -26,9 +30,10 @@ let randomInterval = Math.floor((Math.random() * 500) + 500)
 //console.log(randomInterval)
 let game = {
     over: false,
-    active: false
+    active: true
 
 }
+let score = 0
 
 
 addEventListener("keydown", ({key})=>{
@@ -48,17 +53,20 @@ addEventListener("keydown", ({key})=>{
             break
         case ' ':
             //console.log("shoot")
-            keys.space.pressed = true
-            projectiles.push(new Projectile({
-                position: {
-                    x: player.position.x + (player.width * scale) / 2 ,
-                    y: player.position.y  - (player.height * scale) / 2 + 60,
-                },
-                velocity: {
-                    x: 0,
-                    y: -10
-                }
-            }))
+            if(!keys.space.pressed){
+                keys.space.pressed = true
+                projectiles.push(new Projectile({
+                    position: {
+                        x: player.position.x + (player.width * scale) / 2 ,
+                        y: player.position.y  - (player.height * scale) / 2 + 60,
+                    },
+                    velocity: {
+                        x: 0,
+                        y: -10
+                    }
+                }))
+            }
+
             //console.log(projectiles)
             break
     }
@@ -121,6 +129,11 @@ function createParticles({object,color,fades})
 }
 
 function animate(){
+
+    if(!game.active){
+        return
+    }
+
     c.clearRect(0, 0, canvas.width, canvas.height);
 
     requestAnimationFrame(animate)
@@ -156,26 +169,26 @@ function animate(){
         else{
             invaderProjectile.update()
         }
-
-        if(invaderProjectile.position.y + invaderProjectile.height <= player.position.y &&
-            invaderProjectile.position.x >= player.position.x &&
-            invaderProjectile.position.x + invaderProjectile.width <= player.position.x + player.width)
+        // is player hit ?
+        if(invaderProjectile.position.y + invaderProjectile.height <= player.hitbox.position.y &&
+            invaderProjectile.position.x >= player.hitbox.position.x &&
+            invaderProjectile.position.x + invaderProjectile.width <= player.hitbox.position.x + player.hitbox.width)
         {
-            console.log("Hit!!")
-            player.health--
+            //console.log("Hit!!")
+            player.takeDamage(10)
 
-            //if(player.health <= 0){
+            if(player.health === 0){
                 setTimeout(() => {
                     invaderProjectiles.splice(index, 1)
-                   // player.opacity = 0
-                  //  game.over = true
+                    player.opacity = 0
+                    game.over = true
                 },0)
                 createParticles({
                     object: player,
                     color: "red",
                     fades: true
                 })
-            //}
+            }
 
         }
 
@@ -224,12 +237,15 @@ function animate(){
                         const projectileFound = projectiles.find( projectile2 => projectile2 === projectile)
 
                         if(invaderFound && projectileFound ){
+
+                            score += 100
+                            console.log("SCORE: ",score)
+                            scoreDis.innerHTML = score
                             // create explosion
                             createParticles({
                                 object: invader,
                                 color :"green",
                                 fades: true
-
                             })
 
                             // removes invader and projectile when hit
@@ -260,7 +276,7 @@ function animate(){
         grids.push(new Grid())
         randomInterval = Math.floor((Math.random() * 500) + 500)
         frames = 0
-        console.log(randomInterval)
+        //console.log(randomInterval)
     }
 
 

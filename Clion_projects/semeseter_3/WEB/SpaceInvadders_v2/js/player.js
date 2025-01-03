@@ -9,7 +9,8 @@ class Player {
           y: 0
       }
 
-      this.health = 3
+      this.health = 100
+      this.maxHealth = 100
       this.opacity = 1
 
       const image = new Image()
@@ -25,14 +26,25 @@ class Player {
           }
       }
 
+      this.hitbox = {
+          position: {
+              x: 0,
+              y: 0
+          },
+          width: this.width,
+          height: this.height,
+      }
+
+
+
   }
 
 
 
     draw() {
-        c.fillStyle = "green"
-        c.fillRect(this.position.x + 12, this.position.y + 17, this.width, this.height)
-        const scale = 1.5; // Gleicher Skalierungsfaktor wie für das Bild
+        //c.fillStyle = "green"
+        //c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height)
+        //const scale = 1.5; // Gleicher Skalierungsfaktor wie für das Bild
 
         c.globalAlpha = this.opacity
         // Bild zeichnen (wie gehabt)
@@ -44,6 +56,7 @@ class Player {
             this.height * scale
         );
 
+        this.updateHitbox()
 
 
     }
@@ -55,6 +68,10 @@ class Player {
           this.position.x += this.velocity.x
           //console.log(this.velocity.x)
       }
+
+        this.updateHealthBar()
+        console.log("HEALTH: ",this.health)
+
   }
 
   move(){
@@ -72,4 +89,29 @@ class Player {
       }
   }
 
+    updateHitbox(){
+        this.hitbox = {
+            position: {
+                x: this.position.x + 12,
+                y: this.position.y + 17
+            },
+            width: this.width,
+            height: this.height,
+        }
+    }
+
+
+    takeDamage(amount) {
+        this.health -= amount;
+        if (this.health < 0) this.health = 0;
+        this.updateHealthBar(); // Lebensanzeige aktualisieren
+    }
+
+    updateHealthBar() {
+        const healthBarInner = document.querySelector("#health-bar-inner");
+        const healthPercentage = (this.health / this.maxHealth) * 100;
+        healthBarInner.style.width = `${healthPercentage}%`; // Passe die Breite des inneren Balkens an
+    }
+
 }
+
