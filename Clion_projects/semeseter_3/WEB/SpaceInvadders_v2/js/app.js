@@ -3,6 +3,11 @@ const canvas = document.querySelector("canvas")
 console.log(canvas)
 const c = canvas.getContext("2d")
 
+const gameOverScreen = document.querySelector("#game-over-screen");
+const finalScore = document.querySelector("#final-score");
+const restartButton = document.querySelector("#restart-button");
+
+
 const scoreDis = document.querySelector("#scoreDis")
 //console.log(canvas)
 //const c = canvas.getContext("2d")
@@ -128,163 +133,7 @@ function createParticles({object,color,fades})
     }
 }
 
-/*
-function animate(){
 
-    if(!game.active){
-        return
-    }
-
-    c.clearRect(0, 0, canvas.width, canvas.height);
-
-    requestAnimationFrame(animate)
-
-
-    player.move()
-    player.update()
-
-
-
-    particles.forEach((particle, index) =>{
-
-        if(particle.position.y - particle.radius >= canvas.height){
-            particle.position.x = Math.random() * canvas.width
-            particle.position.y =  -5 // Math.random() * canvas.height
-        }
-
-        if(particle.opacity <= 0){
-            setTimeout(()=> {
-                particles.splice(index, 1)
-            },0)
-        }else{
-            particle.update()
-        }
-    })
-
-    invaderProjectiles.forEach((invaderProjectile, index) => {
-        if(invaderProjectile.position.y + invaderProjectile.height >= canvas.height){
-            setTimeout(() => {
-                invaderProjectiles.splice(index, 1)
-            },0)
-        }
-        else{
-            invaderProjectile.update()
-        }
-        // is player hit ?
-        if(invaderProjectile.position.y + invaderProjectile.height <= player.hitbox.position.y &&
-            invaderProjectile.position.x >= player.hitbox.position.x &&
-            invaderProjectile.position.x + invaderProjectile.width <= player.hitbox.position.x + player.hitbox.width)
-        {
-            //console.log("Hit!!")
-            player.takeDamage(10)
-
-            if(player.health === 0){
-                setTimeout(() => {
-                    invaderProjectiles.splice(index, 1)
-                    player.opacity = 0
-                    game.over = true
-                },0)
-                createParticles({
-                    object: player,
-                    color: "red",
-                    fades: true
-                })
-            }
-
-        }
-
-    })
-
-
-    // deleting projectiles outside canvas
-    projectiles.forEach((projectile, index) =>{
-        if(projectile.position.y + projectile.radius <= 0){
-            setTimeout(()=>{
-                projectiles.splice(index,1)
-            },0)
-        }
-        else{
-            projectile.update()
-        }
-
-    })
-
-
-
-    grids.forEach((grid,gridIndex) => {
-        grid.update()
-
-        // spawn invader projectiles
-        if(frames % 200  === 0 && grid.invaders.length > 0){
-            grid.invaders[Math.floor(Math.random() * grid.invaders.length)].shoot(invaderProjectiles)
-        }
-        grid.invaders.forEach((invader, i) =>{
-            invader.update({velocity: grid.velocity})
-
-            projectiles.forEach((projectile, j) =>{
-                if (projectile.position.y - projectile.radius <=
-                    invader.position.y + invader.height &&
-                    projectile.position.x + projectile.radius >=
-                    invader.position.x && projectile.position.x -
-                    projectile.radius <= invader.position.x + invader.width&&
-                    projectile.position.y + projectile.radius >=
-                    invader.position.y)
-                {
-
-
-
-                    setTimeout(() => {
-                        const invaderFound = grid.invaders.find(invader2 =>{return invader2 === invader})
-                        const projectileFound = projectiles.find( projectile2 => projectile2 === projectile)
-
-                        if(invaderFound && projectileFound ){
-
-                            score += 100
-                            console.log("SCORE: ",score)
-                            scoreDis.innerHTML = score
-                            // create explosion
-                            createParticles({
-                                object: invader,
-                                color :"green",
-                                fades: true
-                            })
-
-                            // removes invader and projectile when hit
-                            grid.invaders.splice(i,1)
-                            projectiles.splice(j,1)
-
-                            if(grid.invaders.length > 0){
-                                const firstInvader = grid.invaders[0]
-                                const lastInvader = grid.invaders[grid.invaders.length - 1]
-
-                                grid.width = lastInvader.position.x - firstInvader.position.x + lastInvader.width
-
-                                grid.position.x = firstInvader.position.x
-                            }
-                            else{
-                                grids.splice(gridIndex,1)
-                            }
-                        }
-
-                    },0)
-                }
-            })
-        })
-    })
-
-    // spawn invader grid
-    if(frames % randomInterval === 0){
-        grids.push(new Grid())
-        randomInterval = Math.floor((Math.random() * 500) + 500)
-        frames = 0
-        //console.log(randomInterval)
-    }
-
-
-
-   // console.log(frames)
-    frames ++
-}*/
 
 function animate() {
     if (!game.active) {
@@ -342,6 +191,9 @@ function animate() {
                         color: "red",
                         fades: true
                     });
+
+                    finalScore.textContent = score;
+                    gameOverScreen.style.display = "block";
                 }
             }
         }
