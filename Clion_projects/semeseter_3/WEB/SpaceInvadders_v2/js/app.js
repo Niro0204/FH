@@ -128,6 +128,7 @@ function createParticles({object,color,fades})
     }
 }
 
+/*
 function animate(){
 
     if(!game.active){
@@ -283,6 +284,135 @@ function animate(){
 
    // console.log(frames)
     frames ++
+}*/
+
+function animate() {
+    if (!game.active) {
+        return;
+    }
+
+    c.clearRect(0, 0, canvas.width, canvas.height);
+
+    requestAnimationFrame(animate);
+
+    player.move();
+    player.update();
+
+    // Partikel-Update
+    particles.forEach((particle, index) => {
+        if (particle.position.y - particle.radius >= canvas.height) {
+            particle.position.x = Math.random() * canvas.width;
+            particle.position.y = -5; // Math.random() * canvas.height
+        }
+
+        if (particle.opacity <= 0) {
+            particles.splice(index, 1); // Sofortiges Entfernen ohne setTimeout
+        } else {
+            particle.update();
+        }
+    });
+
+    // Invader-Projektile
+    invaderProjectiles.forEach((invaderProjectile, index) => {
+        // Entfernen von Projektile außerhalb der Leinwand
+        if (invaderProjectile.position.y + invaderProjectile.height >= canvas.height) {
+            invaderProjectiles.splice(index, 1);
+        } else {
+            invaderProjectile.update();
+        }
+
+        // Überprüfen, ob der Spieler getroffen wurde
+        if (
+            invaderProjectile.position.y + invaderProjectile.height >= player.hitbox.position.y &&
+            invaderProjectile.position.y <= player.hitbox.position.y + player.hitbox.height &&
+            invaderProjectile.position.x + invaderProjectile.width >= player.hitbox.position.x &&
+            invaderProjectile.position.x <= player.hitbox.position.x + player.hitbox.width
+        ) {
+            if (!invaderProjectile.hit) {
+                invaderProjectile.hit = true; // Sicherstellen, dass es nur einmal Schaden verursacht
+                player.takeDamage(10);
+                invaderProjectiles.splice(index, 1); // Projektile entfernen
+
+                if (player.health === 0) {
+
+                    player.opacity = 0;
+                    game.over = true;
+                    createParticles({
+                        object: player,
+                        color: "red",
+                        fades: true
+                    });
+                }
+            }
+        }
+    });
+
+    // Spieler-Projektile
+    projectiles.forEach((projectile, index) => {
+        if (projectile.position.y + projectile.radius <= 0) {
+            projectiles.splice(index, 1); // Sofortiges Entfernen ohne setTimeout
+        } else {
+            projectile.update();
+        }
+    });
+
+    // Invader-Grids
+    grids.forEach((grid, gridIndex) => {
+        grid.update();
+
+        if (frames % 200 === 0 && grid.invaders.length > 0) {
+            grid.invaders[Math.floor(Math.random() * grid.invaders.length)].shoot(invaderProjectiles);
+        }
+
+        grid.invaders.forEach((invader, i) => {
+            invader.update({ velocity: grid.velocity });
+
+            projectiles.forEach((projectile, j) => {
+                if (
+                    projectile.position.y - projectile.radius <= invader.position.y + invader.height &&
+                    projectile.position.x + projectile.radius >= invader.position.x &&
+                    projectile.position.x - projectile.radius <= invader.position.x + invader.width &&
+                    projectile.position.y + projectile.radius >= invader.position.y
+                ) {
+                    const invaderFound = grid.invaders.find(invader2 => invader2 === invader);
+                    const projectileFound = projectiles.find(projectile2 => projectile2 === projectile);
+
+                    if (invaderFound && projectileFound) {
+                        score += 100;
+                        scoreDis.innerHTML = score;
+                        createParticles({
+                            object: invader,
+                            color: "green",
+                            fades: true
+                        });
+
+                        grid.invaders.splice(i, 1);
+                        projectiles.splice(j, 1);
+
+                        if (grid.invaders.length > 0) {
+                            const firstInvader = grid.invaders[0];
+                            const lastInvader = grid.invaders[grid.invaders.length - 1];
+
+                            grid.width = lastInvader.position.x - firstInvader.position.x + lastInvader.width;
+                            grid.position.x = firstInvader.position.x;
+                        } else {
+                            grids.splice(gridIndex, 1);
+                        }
+                    }
+                }
+            });
+        });
+    });
+
+    // Invader-Grids spawnen
+    if (frames % randomInterval === 0) {
+        grids.push(new Grid());
+        randomInterval = Math.floor((Math.random() * 500) + 500);
+        frames = 0;
+    }
+
+    frames++;
 }
 
-animate()
+animate();
+
