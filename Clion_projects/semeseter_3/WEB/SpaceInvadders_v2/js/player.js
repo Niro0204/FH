@@ -8,6 +8,10 @@ class Player {
           x: 0,
           y: 0
       }
+
+      this.health = 3
+      this.opacity = 1
+
       const image = new Image()
       image.src = "img/ships/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png"
       image.onload = ()=> {
@@ -26,9 +30,11 @@ class Player {
 
 
     draw() {
+        c.fillStyle = "green"
+        c.fillRect(this.position.x + 12, this.position.y + 17, this.width, this.height)
         const scale = 1.5; // Gleicher Skalierungsfaktor wie für das Bild
 
-
+        c.globalAlpha = this.opacity
         // Bild zeichnen (wie gehabt)
         c.drawImage(
             this.image,

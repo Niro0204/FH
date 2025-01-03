@@ -21,10 +21,22 @@ const particles = []
 const player = new Player()
 const grids = []
 
+let frames = 0
+let randomInterval = Math.floor((Math.random() * 500) + 500)
+//console.log(randomInterval)
+let game = {
+    over: false,
+    active: false
 
+}
 
 
 addEventListener("keydown", ({key})=>{
+
+    if(game.over){
+        return
+    }
+
     switch(key){
         case 'a':
             //console.log("left")
@@ -65,9 +77,48 @@ addEventListener("keyup", ({key})=>{
     }
 })
 
-let frames = 0
-let randomInterval = Math.floor((Math.random() * 500) + 500)
-console.log(randomInterval)
+
+
+
+
+
+for(let i = 0; i < 100; i++){
+    particles.push(new Particle({
+        position: {
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height
+        },
+        velocity: {
+            x: 0,
+            y: Math.random() * 0.5
+        },
+        radius: Math.random() * 2,
+        color: "white"
+
+    }))
+}
+
+
+
+function createParticles({object,color,fades})
+{
+    for(let i = 0; i < 15; i++){
+        particles.push(new Particle({
+            position: {
+                x: object.position.x + object.width / 2,
+                y: object.position.y + object.height / 2
+            },
+            velocity: {
+                x: (Math.random() - 0.5) * 2,
+                y: (Math.random() - 0.5) * 2
+            },
+            radius: Math.random() * 3,
+            color: color,
+            fades
+
+        }))
+    }
+}
 
 function animate(){
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -78,7 +129,15 @@ function animate(){
     player.move()
     player.update()
 
+
+
     particles.forEach((particle, index) =>{
+
+        if(particle.position.y - particle.radius >= canvas.height){
+            particle.position.x = Math.random() * canvas.width
+            particle.position.y =  -5 // Math.random() * canvas.height
+        }
+
         if(particle.opacity <= 0){
             setTimeout(()=> {
                 particles.splice(index, 1)
@@ -103,6 +162,21 @@ function animate(){
             invaderProjectile.position.x + invaderProjectile.width <= player.position.x + player.width)
         {
             console.log("Hit!!")
+            player.health--
+
+            //if(player.health <= 0){
+                setTimeout(() => {
+                    invaderProjectiles.splice(index, 1)
+                   // player.opacity = 0
+                  //  game.over = true
+                },0)
+                createParticles({
+                    object: player,
+                    color: "red",
+                    fades: true
+                })
+            //}
+
         }
 
     })
@@ -127,7 +201,7 @@ function animate(){
         grid.update()
 
         // spawn invader projectiles
-        if(frames % 100 === 0 && grid.invaders.length > 0){
+        if(frames % 200  === 0 && grid.invaders.length > 0){
             grid.invaders[Math.floor(Math.random() * grid.invaders.length)].shoot(invaderProjectiles)
         }
         grid.invaders.forEach((invader, i) =>{
@@ -151,21 +225,12 @@ function animate(){
 
                         if(invaderFound && projectileFound ){
                             // create explosion
-                            for(let i = 0; i < 15; i++){
-                                particles.push(new Particle({
-                                    position: {
-                                        x: invader.position.x + invader.width / 2,
-                                        y: invader.position.y + invader.height / 2
-                                    },
-                                    velocity: {
-                                        x: (Math.random() - 0.5) * 2,
-                                        y: (Math.random() - 0.5) * 2
-                                    },
-                                    radius: Math.random() * 3,
-                                    color: "green"
+                            createParticles({
+                                object: invader,
+                                color :"green",
+                                fades: true
 
-                                }))
-                            }
+                            })
 
                             // removes invader and projectile when hit
                             grid.invaders.splice(i,1)

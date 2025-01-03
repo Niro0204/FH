@@ -30,10 +30,10 @@ class InvaderProjectile {
         this.position = position
         this.velocity = velocity
 
-       this.width = 3
-       this.height = 5
+       this.width = 5
+       this.height = 10
     }
-
+d
     draw(){
         c.fillStyle = "blue"
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
@@ -50,13 +50,15 @@ class InvaderProjectile {
 
 class Particle {
 
-    constructor({position, velocity, radius, color}) {
+    constructor({position, velocity, radius, color, fades}) {
         this.position = position
         this.velocity = velocity
 
         this.radius = radius
         this.color = color
         this.opacity = 1
+
+        this.fades = fades
     }
 
     draw(){
@@ -74,7 +76,11 @@ class Particle {
         this.draw()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
-        this.opacity -= 0.01
+
+        if(this.fades){
+            this.opacity -= 0.01
+        }
+
     }
 
 
