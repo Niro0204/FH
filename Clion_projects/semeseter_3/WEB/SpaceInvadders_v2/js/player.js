@@ -42,9 +42,6 @@ class Player {
 
 
     draw() {
-        //c.fillStyle = "green"
-        //c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height)
-        //const scale = 1.5; // Gleicher Skalierungsfaktor wie für das Bild
 
         c.globalAlpha = this.opacity
         // Bild zeichnen (wie gehabt)

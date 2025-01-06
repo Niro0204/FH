@@ -18,6 +18,7 @@ const scoreDis = document.querySelector("#scoreDis")
 canvas.width = innerWidth
 canvas.height = innerHeight
 
+// verfolgen von tasten
 const keys = {
     a: {pressed: false},
     d: {pressed: false},
@@ -27,14 +28,19 @@ const keys = {
 
 const scale = 1.5
 
+// arrays für projektile und partikel
 const projectiles = []
 const invaderProjectiles = []
 const particles = []
 
+// arrays für player und invader grids
 const player = new Player()
 const grids = []
 
+// framezahl verfolgen
 let frames = 0
+
+// interval für gegner spawn
 let randomInterval = Math.floor((Math.random() * 500) + 500)
 //console.log(randomInterval)
 let game = {
@@ -44,7 +50,7 @@ let game = {
 }
 let score = 0
 
-
+// Tastendrucke überprüfen
 addEventListener("keydown", ({key})=>{
 
     if(game.over){
@@ -80,6 +86,8 @@ addEventListener("keydown", ({key})=>{
             break
     }
 })
+
+// listener für das loslassen der tasten
 addEventListener("keyup", ({key})=>{
     switch(key){
         case 'a':
@@ -95,10 +103,7 @@ addEventListener("keyup", ({key})=>{
 })
 
 
-
-
-
-
+// erstellen der hintergrundpartikel
 for(let i = 0; i < 100; i++){
     particles.push(new Particle({
         position: {
@@ -116,7 +121,7 @@ for(let i = 0; i < 100; i++){
 }
 
 
-
+// erstellen von zerstörungspartikel
 function createParticles({object,color,fades})
 {
     for(let i = 0; i < 15; i++){
@@ -138,7 +143,7 @@ function createParticles({object,color,fades})
 }
 
 
-
+// haupt animation
 function animate() {
     if (!game.active) {
         return;
@@ -183,7 +188,7 @@ function animate() {
         ) {
             if (!invaderProjectile.hit) {
                 invaderProjectile.hit = true; // Sicherstellen, dass es nur einmal Schaden verursacht
-                player.takeDamage(10);
+                player.takeDamage(20);
                 invaderProjectiles.splice(index, 1); // Projektile entfernen
 
                 if (player.health === 0) {
@@ -216,6 +221,7 @@ function animate() {
     grids.forEach((grid, gridIndex) => {
         grid.update();
 
+        // invader shießen zufällig
         if (frames % 200 === 0 && grid.invaders.length > 0) {
             grid.invaders[Math.floor(Math.random() * grid.invaders.length)].shoot(invaderProjectiles);
         }
@@ -223,6 +229,7 @@ function animate() {
         grid.invaders.forEach((invader, i) => {
             invader.update({ velocity: grid.velocity });
 
+            // überprüfen ob invader getroffen wurde
             projectiles.forEach((projectile, j) => {
                 if (
                     projectile.position.y - projectile.radius <= invader.position.y + invader.height &&
@@ -233,6 +240,7 @@ function animate() {
                     const invaderFound = grid.invaders.find(invader2 => invader2 === invader);
                     const projectileFound = projectiles.find(projectile2 => projectile2 === projectile);
 
+                    // bei einem treffer, score erhöhen und invader zerstören
                     if (invaderFound && projectileFound) {
                         score += 100;
                         scoreDis.innerHTML = score;
@@ -245,6 +253,7 @@ function animate() {
                         grid.invaders.splice(i, 1);
                         projectiles.splice(j, 1);
 
+                        // grid größe updaten
                         if (grid.invaders.length > 0) {
                             const firstInvader = grid.invaders[0];
                             const lastInvader = grid.invaders[grid.invaders.length - 1];
@@ -252,7 +261,7 @@ function animate() {
                             grid.width = lastInvader.position.x - firstInvader.position.x + lastInvader.width;
                             grid.position.x = firstInvader.position.x;
                         } else {
-                            grids.splice(gridIndex, 1);
+                            grids.splice(gridIndex, 1); // wenn leer, dann grid entfernen
                         }
                     }
                 }
