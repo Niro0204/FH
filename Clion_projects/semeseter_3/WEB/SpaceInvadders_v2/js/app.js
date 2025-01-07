@@ -95,10 +95,6 @@ addEventListener("keyup", ({key})=>{
 })
 
 
-
-
-
-
 for(let i = 0; i < 100; i++){
     particles.push(new Particle({
         position: {
@@ -183,7 +179,7 @@ function animate() {
         ) {
             if (!invaderProjectile.hit) {
                 invaderProjectile.hit = true; // Sicherstellen, dass es nur einmal Schaden verursacht
-                player.takeDamage(10);
+                player.takeDamage(30);
                 invaderProjectiles.splice(index, 1); // Projektile entfernen
 
                 if (player.health === 0) {

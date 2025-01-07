@@ -82,8 +82,8 @@ class Grid {
         this.invaders = []
 
         // Zufällige Anzahl von Reihen und Spalten
-        const rows = Math.floor(Math.random() * 5) + 1
-        const columns = Math.floor(Math.random() * 10) + 1
+        const rows = Math.floor(Math.random() * 8) + 1
+        const columns = Math.floor(Math.random() * 12) + 1
 
         // Breite des Grids basierend auf der Anzahl der Spalten
         this.width = (columns - 1) * 40 + 30

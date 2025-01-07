@@ -67,7 +67,10 @@ class Player {
 
     // Bewegung des Spielers basierend auf gedrückten Tasten
     move() {
-        if (keys.a.pressed && player.position.x >= -5) {
+        if(keys.a.pressed && keys.d.pressed){
+            this.velocity.x=0
+        }
+        else if (keys.a.pressed && player.position.x >= -5) {
             this.velocity.x = -5
         }
         else if (keys.d.pressed && player.position.x + player.width <= canvas.width - 20) {
