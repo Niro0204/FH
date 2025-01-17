@@ -5,6 +5,7 @@ class Invader {
     constructor({position}) {
 
 
+
         this.velocity={
             x: 0,
             y: 0

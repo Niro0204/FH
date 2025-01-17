@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/real_lab_08.dir/main.cpp.o -o real_lab_08

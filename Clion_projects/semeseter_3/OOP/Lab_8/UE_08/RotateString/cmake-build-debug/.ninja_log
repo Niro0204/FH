@@ -1,0 +1,19 @@
+# ninja log v6
+0	54	1735992320407859806	CMakeFiles/RotateString.dir/main.cpp.o.ddi	a4a4f471b7b33d79
+54	58	1735992320464527203	CMakeFiles/RotateString.dir/CXX.dd	c591c24e9d25fe43
+54	58	1735992320464527203	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/UE_08/RotateString/cmake-build-debug/CMakeFiles/RotateString.dir/CXXModules.json	c591c24e9d25fe43
+54	58	1735992320464527203	CMakeFiles/RotateString.dir/main.cpp.o.modmap	c591c24e9d25fe43
+58	406	1735992320464527203	CMakeFiles/RotateString.dir/main.cpp.o	2aebac09feb59e75
+407	440	1735992320814531722	RotateString	9241836affacc91a
+1	55	1735992334948047677	CMakeFiles/RotateString.dir/main.cpp.o.ddi	a4a4f471b7b33d79
+55	58	1735992335001381701	CMakeFiles/RotateString.dir/CXX.dd	c591c24e9d25fe43
+55	58	1735992335001381701	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/UE_08/RotateString/cmake-build-debug/CMakeFiles/RotateString.dir/CXXModules.json	c591c24e9d25fe43
+55	58	1735992335001381701	CMakeFiles/RotateString.dir/main.cpp.o.modmap	c591c24e9d25fe43
+58	405	1735992335004715076	CMakeFiles/RotateString.dir/main.cpp.o	2aebac09feb59e75
+405	440	1735992335351386228	RotateString	9241836affacc91a
+1	54	1735992694682916505	CMakeFiles/RotateString.dir/main.cpp.o.ddi	a4a4f471b7b33d79
+54	57	1735992694736250907	CMakeFiles/RotateString.dir/CXX.dd	c591c24e9d25fe43
+54	57	1735992694736250907	/home/nico/Dev/FH/Clion_projects/semeseter_3/OOP/Lab_8/UE_08/RotateString/cmake-build-debug/CMakeFiles/RotateString.dir/CXXModules.json	c591c24e9d25fe43
+54	57	1735992694736250907	CMakeFiles/RotateString.dir/main.cpp.o.modmap	c591c24e9d25fe43
+57	408	1735992694739584308	CMakeFiles/RotateString.dir/main.cpp.o	2aebac09feb59e75
+408	442	1735992695089591321	RotateString	9241836affacc91a

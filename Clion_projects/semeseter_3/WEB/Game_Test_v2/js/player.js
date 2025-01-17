@@ -54,6 +54,7 @@ class Player extends Sprite {
             width: 200,
             height: 80,
         }
+
     }
 
     switchSprite(key) {
